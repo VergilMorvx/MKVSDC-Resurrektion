@@ -34,11 +34,17 @@ class DiagnosticTelemetrySink : public spdlog::sinks::base_sink<std::mutex> {
     bool is_pkg = (payload.find(".xxx") != std::string_view::npos ||
                    payload.find("Asset") != std::string_view::npos);
 
+    bool is_content = (payload.find("XamContent") != std::string_view::npos ||
+                       payload.find("Content") != std::string_view::npos ||
+                       payload.find("profile") != std::string_view::npos ||
+                       payload.find("Save") != std::string_view::npos ||
+                       payload.find("save") != std::string_view::npos);
+
     if (payload.find("k_1_REVERSE") != std::string_view::npos) {
       return;
     }
 
-    if (is_movie || is_shader || is_pkg || msg.level >= spdlog::level::warn) {
+    if (is_movie || is_shader || is_pkg || is_content || msg.level >= spdlog::level::warn) {
       auto now = std::chrono::steady_clock::now();
       auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count();
       if (out_.is_open()) {
@@ -100,6 +106,12 @@ class MkvdcApp : public rex::ReXApp {
         paths.game_data_root = default_root;
       }
     }
+
+    if (paths.user_data_root.empty()) {
+      paths.user_data_root = std::filesystem::current_path() / "savedata";
+    }
+    std::error_code ec;
+    std::filesystem::create_directories(paths.user_data_root, ec);
   }
 
   void OnPreSetup(rex::RuntimeConfig& config) override {
@@ -156,8 +168,14 @@ class MkvdcApp : public rex::ReXApp {
 
     // Enable keyboard/mouse controller emulation by default (Enter=Start, Space=A, Backspace=B, WASD)
     std::string current_mnk = rex::cvar::GetFlagByName("mnk_mode");
-    if (current_mnk.empty()) {
+    if (current_mnk.empty() || current_mnk == "false") {
       rex::cvar::SetFlagByName("mnk_mode", "true");
+    }
+
+    // Permit background/unfocused input processing for automation and seamless window switching
+    std::string current_mnk_focus = rex::cvar::GetFlagByName("mnk_ignore_focus");
+    if (current_mnk_focus.empty() || current_mnk_focus == "false") {
+      rex::cvar::SetFlagByName("mnk_ignore_focus", "true");
     }
   }
 };

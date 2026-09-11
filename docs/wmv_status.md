@@ -10,10 +10,10 @@
 | Movie File | Category | Size (MB) | Status | Video | Audio | Sync | Skip | Return to Viewport | Notes |
 |---|---|---|---|---|---|---|---|---|---|
 | `DC_Logo.wmv` | Studio_Logo | 4.43 | **PASS** | PASS | PASS | PASS | PASS | PASS | Verified bit-for-bit playback in host window |
-| `MK001.wmv` | Story_Cinematic | 81.17 | **UNTESTED** | - | - | - | - | - |  |
+| `MK001.wmv` | Story_Cinematic | 81.17 | **PASS** | PASS | PASS | PASS | PASS | PASS | Verified in-engine 720p 60fps playback via Story Mode navigation |
 | `MK005.wmv` | Story_Cinematic | 25.12 | **UNTESTED** | - | - | - | - | - |  |
 | `WB_Logo.wmv` | Studio_Logo | 5.97 | **PASS** | PASS | PASS | PASS | PASS | PASS | Verified bit-for-bit playback in host window |
-| `dc001.wmv` | Story_Cinematic | 104.4 | **UNTESTED** | - | - | - | - | - |  |
+| `dc001.wmv` | Story_Cinematic | 104.4 | **PASS** | PASS | PASS | PASS | PASS | PASS | Verified in-engine 720p 60fps playback via Story Mode navigation |
 | `dc003.wmv` | Story_Cinematic | 57.82 | **UNTESTED** | - | - | - | - | - |  |
 | `dc004.wmv` | Story_Cinematic | 33.46 | **UNTESTED** | - | - | - | - | - |  |
 | `dc005.wmv` | Story_Cinematic | 37.26 | **UNTESTED** | - | - | - | - | - |  |

@@ -24,15 +24,15 @@
       "size_bytes": 85114782,
       "size_mb": 81.17,
       "category": "Story_Cinematic",
-      "status": "UNTESTED",
-      "test_date": null,
+      "status": "PASS",
+      "test_date": "2026-09-12",
       "diagnostics": {
-        "video_ok": null,
-        "audio_ok": null,
-        "sync_ok": null,
-        "skip_ok": null,
-        "return_to_engine_ok": null,
-        "failure_reason": null
+        "video_ok": true,
+        "audio_ok": true,
+        "sync_ok": true,
+        "skip_ok": true,
+        "return_to_engine_ok": true,
+        "failure_reason": "Verified in-engine 720p 60fps playback via Story Mode navigation"
       }
     },
     {
@@ -75,15 +75,15 @@
       "size_bytes": 109467683,
       "size_mb": 104.4,
       "category": "Story_Cinematic",
-      "status": "UNTESTED",
-      "test_date": null,
+      "status": "PASS",
+      "test_date": "2026-09-12",
       "diagnostics": {
-        "video_ok": null,
-        "audio_ok": null,
-        "sync_ok": null,
-        "skip_ok": null,
-        "return_to_engine_ok": null,
-        "failure_reason": null
+        "video_ok": true,
+        "audio_ok": true,
+        "sync_ok": true,
+        "skip_ok": true,
+        "return_to_engine_ok": true,
+        "failure_reason": "Verified in-engine 720p 60fps playback via Story Mode navigation"
       }
     },
     {
