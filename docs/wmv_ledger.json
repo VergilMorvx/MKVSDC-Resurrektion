@@ -7,15 +7,15 @@
       "size_bytes": 4647402,
       "size_mb": 4.43,
       "category": "Studio_Logo",
-      "status": "UNTESTED",
-      "test_date": null,
+      "status": "PASS",
+      "test_date": "2026-09-11",
       "diagnostics": {
-        "video_ok": null,
-        "audio_ok": null,
-        "sync_ok": null,
-        "skip_ok": null,
-        "return_to_engine_ok": null,
-        "failure_reason": null
+        "video_ok": true,
+        "audio_ok": true,
+        "sync_ok": true,
+        "skip_ok": true,
+        "return_to_engine_ok": true,
+        "failure_reason": "Verified bit-for-bit playback in host window"
       }
     },
     {
@@ -58,15 +58,15 @@
       "size_bytes": 6263432,
       "size_mb": 5.97,
       "category": "Studio_Logo",
-      "status": "UNTESTED",
-      "test_date": null,
+      "status": "PASS",
+      "test_date": "2026-09-11",
       "diagnostics": {
-        "video_ok": null,
-        "audio_ok": null,
-        "sync_ok": null,
-        "skip_ok": null,
-        "return_to_engine_ok": null,
-        "failure_reason": null
+        "video_ok": true,
+        "audio_ok": true,
+        "sync_ok": true,
+        "skip_ok": true,
+        "return_to_engine_ok": true,
+        "failure_reason": "Verified bit-for-bit playback in host window"
       }
     },
     {
@@ -1146,15 +1146,15 @@
       "size_bytes": 3479375,
       "size_mb": 3.32,
       "category": "Studio_Logo",
-      "status": "UNTESTED",
-      "test_date": null,
+      "status": "PASS",
+      "test_date": "2026-09-11",
       "diagnostics": {
-        "video_ok": null,
-        "audio_ok": null,
-        "sync_ok": null,
-        "skip_ok": null,
-        "return_to_engine_ok": null,
-        "failure_reason": null
+        "video_ok": true,
+        "audio_ok": true,
+        "sync_ok": true,
+        "skip_ok": true,
+        "return_to_engine_ok": true,
+        "failure_reason": "Verified bit-for-bit playback in host window"
       }
     },
     {

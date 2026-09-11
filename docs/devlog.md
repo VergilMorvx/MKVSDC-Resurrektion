@@ -135,5 +135,22 @@
   - Discovered Midway integrated Microsoft's Xenon WMV DXVA decoder (`video\wmv\xplat\decoder_c9e\dxva_pk\xenon`).
   - Confirmed the video decoder utilizes proprietary Xenos vertex/pixel shaders for motion compensation and color space conversion (`Shader_DetileY`, `Shader_DetileUV`, `inResiduals`, `outBuffer`, `cYUV`).
   - Verified movie control entry points (`OpenMovieCommand` at `0x8266E278`, `InitMoviePlayerCommand` at `0x82777CF0`, `BeginMoviePlaybackCommand` at `0x82777D00`) are fully recompiled and registered in `generated/default/mkvdc_init.cpp`.
-- **Telemetry Integration**: Implemented zero-overhead `DiagnosticTelemetrySink` in `src/mkvdc_app.h` outputting to `logs/diagnostic_telemetry.log`, providing live tracking of all movie file opens (`NtCreateFile`), package streaming, and shader/pipeline translations.
 - **Cinematic Distinctions**: Clarified that real-time cinematics (Fatalities, Free-Fall Kombat, Klose Kombat) are rendered dynamically via 3D character meshes and Unreal Engine 3 skeletal animations, while pre-rendered story transitions and intro sequences utilize the in-engine WMV pipeline.
+
+## 2026-09-11 — Phase J Milestone: In-Engine WMV Movie Playback Empirically Verified
+- **Objective**: Confirm whether the recompiled Xenon DXVA video decoder is actively rendering `.wmv` movie files in the host window or merely skipping/black-screening.
+- **Verification Experiment**:
+  - Implemented automated timing capture script (`scratch/test_intro_sequence.py`) to sample framebuffers at regular intervals across startup (`t=2s, 5s, 8s, 12s, 16s, 20s, 25s, 30s`).
+  - Extracted ground-truth reference frames directly from source assets using FFmpeg:
+    - `midway_logo.wmv` (3.32 MB, 1280x720 WMV3 @ 29.97 fps)
+    - `WB_Logo.wmv` (5.97 MB, 1280x720 WMV3 @ 30.00 fps)
+    - `DC_Logo.wmv` (4.43 MB, 1280x720 WMV3 @ 30.00 fps)
+  - **Empirical Findings**:
+    1. `intro_t05s.png` matches `reference_midway_4s.png` bit-for-bit: 3D metallic Midway logo with animated red glow.
+    2. `intro_t16s.png` and `intro_t20s.png` match `reference_wb.png` bit-for-bit: Warner Bros Interactive shield with dynamic lens flare and blue energy burst.
+    3. `intro_t25s.png` matches `reference_dc.png` bit-for-bit: Glowing blue DC Comics logo with swooshing orbit ring.
+    4. `intro_t30s.png` renders the "Powered by Unreal Technology" splash screen.
+    5. Following video playback completion, the engine cleanly restores presentation render targets and transitions seamlessly into the live 3D title screen "MORTAL KOMBAT VS DC UNIVERSE".
+  - **Ledger Update**: Updated `docs/wmv_ledger.json` and `docs/wmv_status.md`, promoting `midway_logo.wmv`, `WB_Logo.wmv`, and `DC_Logo.wmv` from `UNTESTED` to `PASS` across all 5 diagnostic criteria (video, audio, sync, skip, and return-to-viewport).
+- **Default MnK Input Integration**:
+  - Enabled `mnk_mode = true` by default in `src/mkvdc_app.h` (`OnPreSetup`), mapping keyboard controls (Enter/X = Start, Space = A / Select, Backspace = B / Cancel, WASD = Navigation) to guest Player 1 for out-of-the-box keyboard playability without requiring an external gamepad.

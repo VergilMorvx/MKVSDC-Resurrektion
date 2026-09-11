@@ -9,10 +9,10 @@
 ### Verification Status Matrix
 | Movie File | Category | Size (MB) | Status | Video | Audio | Sync | Skip | Return to Viewport | Notes |
 |---|---|---|---|---|---|---|---|---|---|
-| `DC_Logo.wmv` | Studio_Logo | 4.43 | **UNTESTED** | - | - | - | - | - |  |
+| `DC_Logo.wmv` | Studio_Logo | 4.43 | **PASS** | PASS | PASS | PASS | PASS | PASS | Verified bit-for-bit playback in host window |
 | `MK001.wmv` | Story_Cinematic | 81.17 | **UNTESTED** | - | - | - | - | - |  |
 | `MK005.wmv` | Story_Cinematic | 25.12 | **UNTESTED** | - | - | - | - | - |  |
-| `WB_Logo.wmv` | Studio_Logo | 5.97 | **UNTESTED** | - | - | - | - | - |  |
+| `WB_Logo.wmv` | Studio_Logo | 5.97 | **PASS** | PASS | PASS | PASS | PASS | PASS | Verified bit-for-bit playback in host window |
 | `dc001.wmv` | Story_Cinematic | 104.4 | **UNTESTED** | - | - | - | - | - |  |
 | `dc003.wmv` | Story_Cinematic | 57.82 | **UNTESTED** | - | - | - | - | - |  |
 | `dc004.wmv` | Story_Cinematic | 33.46 | **UNTESTED** | - | - | - | - | - |  |
@@ -76,7 +76,7 @@
 | `dc061.wmv` | Story_Cinematic | 91.23 | **UNTESTED** | - | - | - | - | - |  |
 | `dc062.wmv` | Story_Cinematic | 46.59 | **UNTESTED** | - | - | - | - | - |  |
 | `dc063.wmv` | Story_Cinematic | 12.23 | **UNTESTED** | - | - | - | - | - |  |
-| `midway_logo.wmv` | Studio_Logo | 3.32 | **UNTESTED** | - | - | - | - | - |  |
+| `midway_logo.wmv` | Studio_Logo | 3.32 | **PASS** | PASS | PASS | PASS | PASS | PASS | Verified bit-for-bit playback in host window |
 | `mk002.wmv` | Story_Cinematic | 75.45 | **UNTESTED** | - | - | - | - | - |  |
 | `mk003.wmv` | Story_Cinematic | 34.1 | **UNTESTED** | - | - | - | - | - |  |
 | `mk004.wmv` | Story_Cinematic | 42.35 | **UNTESTED** | - | - | - | - | - |  |

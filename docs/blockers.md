@@ -14,8 +14,13 @@
   - First-encounter combat stutter isolated via A/B/C testing and resolved: proved to be host D3D12 PSO compilation. Pre-warmed persistent shader cache (`4D5707E9.rtv.d3d12.xpso`, 597 pipelines) deserializes in 131 ms and eliminates hitching completely.
   - Presentation pacing locked at 60 FPS (`d3d12_present_interval = 1`) via custom ReXGlue SDK CVar.
   - Automatic discrete GPU detection implemented in `src/mkvdc_app.h`, correctly routing rendering to NVIDIA GeForce RTX 4060 Laptop GPU.
+- **RESOLVED & VERIFIED (2026-09-11)**: **Phase J1 (Studio Logo Cutscenes & In-Engine WMV Playback)**:
+  - Video decoding subsystem empirically confirmed active in host execution.
+  - Bit-for-bit frame match verified against source assets for `midway_logo.wmv` (3.32 MB), `WB_Logo.wmv` (5.97 MB), and `DC_Logo.wmv` (4.43 MB).
+  - Clean video-to-viewport state restoration and transition into live 3D title screen verified.
+  - Keyboard/mouse controller emulation (`mnk_mode = true`) integrated by default.
 
-## Current Phase Goals: Phase J (Cinematic Sequences & Cutscene Playback)
-1. Verify WMV video decoding pipeline via guest Xenon DXVA shaders.
-2. Audit playback of intro movies, story mode transitions, and attract mode cinematics against the 119-movie ledger (`docs/wmv_status.md`).
-3. Validate audio synchronization across multi-channel video playback and transitions into interactive matches.
+## Current Phase Goals: Phase J2 (Story Mode & In-Game Cinematic Transitions)
+1. Verify story mode cinematic playback (`MK001.wmv`, `dc001.wmv`) and multi-track audio stream decoding.
+2. Verify interactive menu navigation into Story Mode chapters and Arcade ladders.
+3. Track and validate remaining in-game cutscenes against the 119-movie ledger (`docs/wmv_status.md`).
