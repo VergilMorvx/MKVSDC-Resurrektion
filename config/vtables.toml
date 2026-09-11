@@ -1,0 +1,583 @@
+# MKvDC ReXGlue VTable Configuration
+# Consolidated 116 virtual methods and thunks across 2,668 class vtables
+# Verified: zero slicing, zero duplicates, all tail calls mapped
+
+# Discovered via vtable; blr
+[functions.0x8225D170]
+size = 0x10
+name = "sub_8225D170"
+
+# Discovered via vtable; bctr
+[functions.0x8225DB60]
+size = 0x2C
+name = "sub_8225DB60"
+
+# Discovered via vtable; vtable method
+[functions.0x823194C0]
+size = 0x1C
+name = "sub_823194C0"
+
+# Discovered via vtable; vtable method
+[functions.0x82319A50]
+size = 0x14
+name = "sub_82319A50"
+
+# Discovered via vtable; vtable method
+[functions.0x8231A960]
+size = 0x20
+name = "sub_8231A960"
+
+# Discovered via vtable; vtable method
+[functions.0x8231A980]
+size = 0x20
+name = "sub_8231A980"
+
+# Discovered via vtable; vtable method
+[functions.0x82348908]
+size = 0x0C
+name = "sub_82348908"
+
+# Discovered via vtable; blr
+[functions.0x82348AF0]
+size = 0x64
+name = "sub_82348AF0"
+
+# Discovered via vtable; b_tailcall
+[functions.0x823808D8]
+size = 0x3C
+name = "sub_823808D8"
+
+# Discovered via vtable; b_tailcall
+[functions.0x823A9390]
+size = 0x08
+name = "sub_823A9390"
+
+# Discovered via vtable; blr
+[functions.0x823D6030]
+size = 0x08
+name = "sub_823D6030"
+
+# Discovered via vtable; vtable method
+[functions.0x824461B0]
+size = 0x0C
+name = "sub_824461B0"
+
+# Discovered via vtable; blr
+[functions.0x82596000]
+size = 0x3C
+name = "sub_82596000"
+
+# Discovered via vtable; b_tailcall
+[functions.0x8277AAE8]
+size = 0x08
+name = "sub_8277AAE8"
+
+# Discovered via vtable; blr
+[functions.0x827858C0]
+size = 0x0C
+name = "sub_827858C0"
+
+# Discovered via vtable; vtable method
+[functions.0x82855610]
+size = 0x10
+name = "sub_82855610"
+
+# Discovered via vtable; vtable method
+[functions.0x82855760]
+size = 0x28
+name = "sub_82855760"
+
+# Discovered via vtable; vtable method
+[functions.0x82855788]
+size = 0x28
+name = "sub_82855788"
+
+# Discovered via vtable; vtable method
+[functions.0x828557B0]
+size = 0x28
+name = "sub_828557B0"
+
+# Discovered via vtable; vtable method
+[functions.0x828557D8]
+size = 0x28
+name = "sub_828557D8"
+
+# Discovered via vtable; bctr
+[functions.0x82855C08]
+size = 0x20
+name = "sub_82855C08"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828E87B8]
+size = 0x08
+name = "sub_828E87B8"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828E87C0]
+size = 0x08
+name = "sub_828E87C0"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828E9848]
+size = 0x08
+name = "sub_828E9848"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828EAA88]
+size = 0x08
+name = "sub_828EAA88"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828EAAA0]
+size = 0x08
+name = "sub_828EAAA0"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828EAAA8]
+size = 0x08
+name = "sub_828EAAA8"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828EAAC8]
+size = 0x08
+name = "sub_828EAAC8"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828EAAD0]
+size = 0x08
+name = "sub_828EAAD0"
+
+# Discovered via vtable; b_tailcall
+[functions.0x828EAAD8]
+size = 0x08
+name = "sub_828EAAD8"
+
+# Discovered via vtable; blr
+[functions.0x82900FB0]
+size = 0x0C
+name = "sub_82900FB0"
+
+# Discovered via vtable; vtable method
+[functions.0x82908E48]
+size = 0x18
+name = "sub_82908E48"
+
+# Discovered via vtable; vtable method
+[functions.0x82908E60]
+size = 0x08
+name = "sub_82908E60"
+
+# Discovered via vtable; vtable method
+[functions.0x82908E80]
+size = 0x18
+name = "sub_82908E80"
+
+# Discovered via vtable; vtable method
+[functions.0x82909008]
+size = 0x20
+name = "sub_82909008"
+
+# Discovered via vtable; vtable method
+[functions.0x82909028]
+size = 0x20
+name = "sub_82909028"
+
+# Discovered via vtable; vtable method
+[functions.0x82909048]
+size = 0x20
+name = "sub_82909048"
+
+# Discovered via vtable; vtable method
+[functions.0x82909068]
+size = 0x20
+name = "sub_82909068"
+
+# Discovered via vtable; vtable method
+[functions.0x82909088]
+size = 0x20
+name = "sub_82909088"
+
+# Discovered via vtable; vtable method
+[functions.0x829090A8]
+size = 0x20
+name = "sub_829090A8"
+
+# Discovered via vtable; vtable method
+[functions.0x829090C8]
+size = 0x20
+name = "sub_829090C8"
+
+# Discovered via vtable; vtable method
+[functions.0x829090E8]
+size = 0x20
+name = "sub_829090E8"
+
+# Discovered via vtable; vtable method
+[functions.0x82909108]
+size = 0x20
+name = "sub_82909108"
+
+# Discovered via vtable; vtable method
+[functions.0x82909128]
+size = 0x20
+name = "sub_82909128"
+
+# Discovered via vtable; vtable method
+[functions.0x82910160]
+size = 0x08
+name = "sub_82910160"
+
+# Discovered via vtable; vtable method
+[functions.0x829F4530]
+size = 0x18
+name = "sub_829F4530"
+
+# Discovered via vtable; blr
+[functions.0x82A2F060]
+size = 0x14
+name = "sub_82A2F060"
+
+# Discovered via vtable; blr
+[functions.0x82A41B60]
+size = 0x250
+name = "sub_82A41B60"
+
+# Discovered via vtable; blr
+[functions.0x82A41E50]
+size = 0x20
+name = "sub_82A41E50"
+
+# Discovered via vtable; blr
+[functions.0x82A4AB88]
+size = 0x80
+name = "sub_82A4AB88"
+
+# Discovered via vtable; blr
+[functions.0x82A4AC08]
+size = 0x3C
+name = "sub_82A4AC08"
+
+# Discovered via vtable; blr
+[functions.0x82A4BD78]
+size = 0x10
+name = "sub_82A4BD78"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82A4E390]
+size = 0x08
+name = "sub_82A4E390"
+
+# Discovered via vtable; blr
+[functions.0x82A50FA8]
+size = 0x14
+name = "sub_82A50FA8"
+
+# Discovered via vtable; vtable method
+[functions.0x82A57E50]
+size = 0x18
+name = "sub_82A57E50"
+
+# Discovered via vtable; vtable method
+[functions.0x82A57E68]
+size = 0x18
+name = "sub_82A57E68"
+
+# Discovered via vtable; vtable method
+[functions.0x82A5E880]
+size = 0x14
+name = "sub_82A5E880"
+
+# Discovered via vtable; blr
+[functions.0x82A6B8B8]
+size = 0x08
+name = "sub_82A6B8B8"
+
+# Discovered via vtable; blr
+[functions.0x82A6B950]
+size = 0x0C
+name = "sub_82A6B950"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82A6BAC8]
+size = 0x08
+name = "sub_82A6BAC8"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82A722B8]
+size = 0x08
+name = "sub_82A722B8"
+
+# Discovered via vtable; bctr
+[functions.0x82A83298]
+size = 0x18
+name = "sub_82A83298"
+
+# Discovered via vtable; bctr
+[functions.0x82A832B0]
+size = 0x18
+name = "sub_82A832B0"
+
+# Discovered via vtable; bctr
+[functions.0x82A832C8]
+size = 0x18
+name = "sub_82A832C8"
+
+# Discovered via vtable; bctr
+[functions.0x82A832E0]
+size = 0x18
+name = "sub_82A832E0"
+
+# Discovered via vtable; bctr
+[functions.0x82A832F8]
+size = 0x18
+name = "sub_82A832F8"
+
+# Discovered via vtable; bctr
+[functions.0x82A83310]
+size = 0x18
+name = "sub_82A83310"
+
+# Discovered via vtable; bctr
+[functions.0x82A83328]
+size = 0x18
+name = "sub_82A83328"
+
+# Discovered via vtable; bctr
+[functions.0x82A83340]
+size = 0x18
+name = "sub_82A83340"
+
+# Discovered via vtable; blr
+[functions.0x82A93AB0]
+size = 0x10
+name = "sub_82A93AB0"
+
+# Discovered via vtable; bctr
+[functions.0x82A93B68]
+size = 0x18
+name = "sub_82A93B68"
+
+# Discovered via vtable; blr
+[functions.0x82A93B80]
+size = 0x14
+name = "sub_82A93B80"
+
+# Discovered via vtable; vtable method
+[functions.0x82A9E888]
+size = 0x10
+name = "sub_82A9E888"
+
+# Discovered via vtable; blr
+[functions.0x82AA7B18]
+size = 0x24
+name = "sub_82AA7B18"
+
+# Discovered via vtable; bctr
+[functions.0x82AB9AB8]
+size = 0x14
+name = "sub_82AB9AB8"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82ABC1E0]
+size = 0x08
+name = "sub_82ABC1E0"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82AC7020]
+size = 0x08
+name = "sub_82AC7020"
+
+# Discovered via vtable; vtable method
+[functions.0x82AC9C08]
+size = 0x14
+name = "sub_82AC9C08"
+
+# Discovered via vtable; vtable method
+[functions.0x82AC9C30]
+size = 0x14
+name = "sub_82AC9C30"
+
+# Discovered via vtable; vtable method
+[functions.0x82AC9C58]
+size = 0x14
+name = "sub_82AC9C58"
+
+# Discovered via vtable; bctr
+[functions.0x82B4AD48]
+size = 0x20
+name = "sub_82B4AD48"
+
+# Discovered via vtable; vtable method
+[functions.0x82B738F0]
+size = 0x08
+name = "sub_82B738F0"
+
+# Discovered via vtable; bctr (covers internal branches through 0x82B92FAC)
+[functions.0x82B92E60]
+size = 0x150
+name = "sub_82B92E60"
+
+# Discovered via vtable; blr
+[functions.0x82B92FB0]
+size = 0x68
+name = "sub_82B92FB0"
+
+# Discovered via vtable; vtable method
+[functions.0x82C86AB8]
+size = 0x50
+name = "sub_82C86AB8"
+
+# Discovered via vtable; vtable method
+[functions.0x82C86B08]
+size = 0x18
+name = "sub_82C86B08"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82CC08A0]
+size = 0x2C
+name = "sub_82CC08A0"
+
+# Discovered via vtable; blr
+[functions.0x82D57278]
+size = 0x24
+name = "sub_82D57278"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82D57C28]
+size = 0x08
+name = "sub_82D57C28"
+
+# Discovered via vtable; bctr
+[functions.0x82D57C30]
+size = 0x1C
+name = "sub_82D57C30"
+
+# Discovered via vtable; blr
+[functions.0x82D58268]
+size = 0x0C
+name = "sub_82D58268"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82D79050]
+size = 0x08
+name = "sub_82D79050"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82D79058]
+size = 0x08
+name = "sub_82D79058"
+
+# Discovered via vtable; bctr
+[functions.0x82D7CF48]
+size = 0x18
+name = "sub_82D7CF48"
+
+# Discovered via vtable; bctr
+[functions.0x82D7CF60]
+size = 0x18
+name = "sub_82D7CF60"
+
+# Discovered via vtable; bctr
+[functions.0x82D7CF78]
+size = 0x18
+name = "sub_82D7CF78"
+
+# Discovered via vtable; bctr
+[functions.0x82D7CF90]
+size = 0x18
+name = "sub_82D7CF90"
+
+# Discovered via vtable; blr
+[functions.0x82D7CFA8]
+size = 0x08
+name = "sub_82D7CFA8"
+
+# Discovered via vtable; vtable method
+[functions.0x82D9DEF8]
+size = 0x28
+name = "sub_82D9DEF8"
+
+# Discovered via vtable; vtable method
+[functions.0x82DAD9C0]
+size = 0x14
+name = "sub_82DAD9C0"
+
+# Discovered via vtable; vtable method
+[functions.0x82DAE130]
+size = 0x20
+name = "sub_82DAE130"
+
+# Discovered via vtable; blr
+[functions.0x82DBBCE8]
+size = 0x08
+name = "sub_82DBBCE8"
+
+# Discovered via vtable; b_tailcall
+[functions.0x82DD9458]
+size = 0x08
+name = "sub_82DD9458"
+
+# Discovered via vtable; blr
+[functions.0x82DE2B30]
+size = 0x24
+name = "sub_82DE2B30"
+
+# Discovered via vtable; blr
+[functions.0x82DE2B90]
+size = 0x24
+name = "sub_82DE2B90"
+
+# Discovered via vtable; blr
+[functions.0x82DE7958]
+size = 0x24
+name = "sub_82DE7958"
+
+# Discovered via vtable; bctr
+[functions.0x82DE9D40]
+size = 0x20
+name = "sub_82DE9D40"
+
+# Discovered via vtable; bctr
+[functions.0x82DE9D60]
+size = 0x34
+name = "sub_82DE9D60"
+
+# Discovered via vtable; bctr
+[functions.0x82DE9EB0]
+size = 0x30
+name = "sub_82DE9EB0"
+
+# Discovered via vtable; bctr
+[functions.0x82DE9EE0]
+size = 0x30
+name = "sub_82DE9EE0"
+
+# Discovered via vtable; bctr
+[functions.0x82DE9F10]
+size = 0x14
+name = "sub_82DE9F10"
+
+# Discovered via vtable; bctr
+[functions.0x82E2CAF8]
+size = 0x38
+name = "sub_82E2CAF8"
+
+# Discovered via vtable; blr
+[functions.0x82E2CB30]
+size = 0x1C
+name = "sub_82E2CB30"
+
+# Discovered via vtable; vtable method
+[functions.0x82E59978]
+size = 0x08
+name = "sub_82E59978"
+
+# Discovered via vtable; vtable method
+[functions.0x82E59980]
+size = 0x08
+name = "sub_82E59980"
+
+# Discovered via vtable; vtable method
+[functions.0x82E59988]
+size = 0x08
+name = "sub_82E59988"

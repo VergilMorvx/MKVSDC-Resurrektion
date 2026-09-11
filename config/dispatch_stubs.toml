@@ -1,0 +1,1784 @@
+# MKvDC ReXGlue Virtual Dispatch Stubs Configuration
+# Harvested systematically across .text (384 functions)
+# Pattern: lwz rD, 0(r3); lwz rT, N(rD); mtctr rT; bctr (size 0x10)
+# Resolves unmapped virtual method caller stubs and COM interface dispatchers
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82250020]
+size = 0x10
+name = "sub_82250020"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8225043C]
+size = 0x10
+name = "sub_8225043C"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82269F74]
+size = 0x10
+name = "sub_82269F74"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C8B4]
+size = 0x10
+name = "sub_8229C8B4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C8CC]
+size = 0x10
+name = "sub_8229C8CC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C8E4]
+size = 0x10
+name = "sub_8229C8E4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C8FC]
+size = 0x10
+name = "sub_8229C8FC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C914]
+size = 0x10
+name = "sub_8229C914"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C92C]
+size = 0x10
+name = "sub_8229C92C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C944]
+size = 0x10
+name = "sub_8229C944"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C95C]
+size = 0x10
+name = "sub_8229C95C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8229C97C]
+size = 0x10
+name = "sub_8229C97C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x822AB72C]
+size = 0x10
+name = "sub_822AB72C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x822B8B8C]
+size = 0x10
+name = "sub_822B8B8C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x822CB7CC]
+size = 0x10
+name = "sub_822CB7CC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x822CD870]
+size = 0x10
+name = "sub_822CD870"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x822CFCCC]
+size = 0x10
+name = "sub_822CFCCC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82321CA4]
+size = 0x10
+name = "sub_82321CA4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82321CBC]
+size = 0x10
+name = "sub_82321CBC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82321CD4]
+size = 0x10
+name = "sub_82321CD4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823488F8]
+size = 0x10
+name = "sub_823488F8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82348CE0]
+size = 0x10
+name = "sub_82348CE0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82349AFC]
+size = 0x10
+name = "sub_82349AFC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82376EBC]
+size = 0x10
+name = "sub_82376EBC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823A83C8]
+size = 0x10
+name = "sub_823A83C8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823B6930]
+size = 0x10
+name = "sub_823B6930"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823B69B0]
+size = 0x10
+name = "sub_823B69B0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823B69D8]
+size = 0x10
+name = "sub_823B69D8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823B6CA4]
+size = 0x10
+name = "sub_823B6CA4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823B6EE8]
+size = 0x10
+name = "sub_823B6EE8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823C480C]
+size = 0x10
+name = "sub_823C480C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823C48F4]
+size = 0x10
+name = "sub_823C48F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823C4930]
+size = 0x10
+name = "sub_823C4930"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823C8920]
+size = 0x10
+name = "sub_823C8920"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823D6020]
+size = 0x10
+name = "sub_823D6020"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x823F606C]
+size = 0x10
+name = "sub_823F606C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82443F4C]
+size = 0x10
+name = "sub_82443F4C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x824B28A0]
+size = 0x10
+name = "sub_824B28A0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8258FDD8]
+size = 0x10
+name = "sub_8258FDD8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8259017C]
+size = 0x10
+name = "sub_8259017C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x825B2B04]
+size = 0x10
+name = "sub_825B2B04"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x825B2B8C]
+size = 0x10
+name = "sub_825B2B8C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x825CBD2C]
+size = 0x10
+name = "sub_825CBD2C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x825CBE6C]
+size = 0x10
+name = "sub_825CBE6C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x825DDD3C]
+size = 0x10
+name = "sub_825DDD3C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x825E8700]
+size = 0x10
+name = "sub_825E8700"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826046F0]
+size = 0x10
+name = "sub_826046F0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826054F4]
+size = 0x10
+name = "sub_826054F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8260551C]
+size = 0x10
+name = "sub_8260551C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82605544]
+size = 0x10
+name = "sub_82605544"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8262CE90]
+size = 0x10
+name = "sub_8262CE90"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82630FD8]
+size = 0x10
+name = "sub_82630FD8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82654BAC]
+size = 0x10
+name = "sub_82654BAC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8265F5A8]
+size = 0x10
+name = "sub_8265F5A8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8266F5C0]
+size = 0x10
+name = "sub_8266F5C0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8267024C]
+size = 0x10
+name = "sub_8267024C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826720BC]
+size = 0x10
+name = "sub_826720BC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826720FC]
+size = 0x10
+name = "sub_826720FC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8267213C]
+size = 0x10
+name = "sub_8267213C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82672810]
+size = 0x10
+name = "sub_82672810"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826730DC]
+size = 0x10
+name = "sub_826730DC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82673114]
+size = 0x10
+name = "sub_82673114"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8267321C]
+size = 0x10
+name = "sub_8267321C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82673A74]
+size = 0x10
+name = "sub_82673A74"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82673AB0]
+size = 0x10
+name = "sub_82673AB0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82674248]
+size = 0x10
+name = "sub_82674248"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826D7100]
+size = 0x10
+name = "sub_826D7100"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826D7684]
+size = 0x10
+name = "sub_826D7684"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826DED40]
+size = 0x10
+name = "sub_826DED40"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826FAC18]
+size = 0x10
+name = "sub_826FAC18"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826FAC48]
+size = 0x10
+name = "sub_826FAC48"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x826FAC6C]
+size = 0x10
+name = "sub_826FAC6C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82703B20]
+size = 0x10
+name = "sub_82703B20"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82706C24]
+size = 0x10
+name = "sub_82706C24"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x827166E0]
+size = 0x10
+name = "sub_827166E0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82716708]
+size = 0x10
+name = "sub_82716708"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82716738]
+size = 0x10
+name = "sub_82716738"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82732510]
+size = 0x10
+name = "sub_82732510"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8277782C]
+size = 0x10
+name = "sub_8277782C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82777844]
+size = 0x10
+name = "sub_82777844"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8277785C]
+size = 0x10
+name = "sub_8277785C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82777874]
+size = 0x10
+name = "sub_82777874"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8278668C]
+size = 0x10
+name = "sub_8278668C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82796380]
+size = 0x10
+name = "sub_82796380"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x828455C8]
+size = 0x10
+name = "sub_828455C8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x828455F4]
+size = 0x10
+name = "sub_828455F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C28]
+size = 0x10
+name = "sub_82855C28"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C38]
+size = 0x10
+name = "sub_82855C38"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C48]
+size = 0x10
+name = "sub_82855C48"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C58]
+size = 0x10
+name = "sub_82855C58"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C68]
+size = 0x10
+name = "sub_82855C68"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C78]
+size = 0x10
+name = "sub_82855C78"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C88]
+size = 0x10
+name = "sub_82855C88"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855C98]
+size = 0x10
+name = "sub_82855C98"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855CA8]
+size = 0x10
+name = "sub_82855CA8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82855CB8]
+size = 0x10
+name = "sub_82855CB8"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x828E2178]
+size = 0x10
+name = "sub_828E2178"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x828E2198]
+size = 0x10
+name = "sub_828E2198"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x828E3E60]
+size = 0x10
+name = "sub_828E3E60"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8290A958]
+size = 0x10
+name = "sub_8290A958"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x8293D500]
+size = 0x10
+name = "sub_8293D500"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x829E49AC]
+size = 0x10
+name = "sub_829E49AC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A18C04]
+size = 0x10
+name = "sub_82A18C04"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A18C1C]
+size = 0x10
+name = "sub_82A18C1C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A18C34]
+size = 0x10
+name = "sub_82A18C34"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A1D644]
+size = 0x10
+name = "sub_82A1D644"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A1D66C]
+size = 0x10
+name = "sub_82A1D66C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A50F98]
+size = 0x10
+name = "sub_82A50F98"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A50FC0]
+size = 0x10
+name = "sub_82A50FC0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A57E40]
+size = 0x10
+name = "sub_82A57E40"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A624D4]
+size = 0x10
+name = "sub_82A624D4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A62FD4]
+size = 0x10
+name = "sub_82A62FD4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6312C]
+size = 0x10
+name = "sub_82A6312C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A63194]
+size = 0x10
+name = "sub_82A63194"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A631AC]
+size = 0x10
+name = "sub_82A631AC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A631C4]
+size = 0x10
+name = "sub_82A631C4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A631DC]
+size = 0x10
+name = "sub_82A631DC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A631F4]
+size = 0x10
+name = "sub_82A631F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6320C]
+size = 0x10
+name = "sub_82A6320C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A63224]
+size = 0x10
+name = "sub_82A63224"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6323C]
+size = 0x10
+name = "sub_82A6323C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A63254]
+size = 0x10
+name = "sub_82A63254"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6326C]
+size = 0x10
+name = "sub_82A6326C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A63284]
+size = 0x10
+name = "sub_82A63284"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6329C]
+size = 0x10
+name = "sub_82A6329C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A632B4]
+size = 0x10
+name = "sub_82A632B4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6B794]
+size = 0x10
+name = "sub_82A6B794"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6B7AC]
+size = 0x10
+name = "sub_82A6B7AC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6B7C4]
+size = 0x10
+name = "sub_82A6B7C4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6B7DC]
+size = 0x10
+name = "sub_82A6B7DC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A6B7F4]
+size = 0x10
+name = "sub_82A6B7F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A784F4]
+size = 0x10
+name = "sub_82A784F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A78584]
+size = 0x10
+name = "sub_82A78584"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A7A168]
+size = 0x10
+name = "sub_82A7A168"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A83288]
+size = 0x10
+name = "sub_82A83288"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A8E800]
+size = 0x10
+name = "sub_82A8E800"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A93AA0]
+size = 0x10
+name = "sub_82A93AA0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A93B58]
+size = 0x10
+name = "sub_82A93B58"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A98090]
+size = 0x10
+name = "sub_82A98090"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A98108]
+size = 0x10
+name = "sub_82A98108"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A98130]
+size = 0x10
+name = "sub_82A98130"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82A98170]
+size = 0x10
+name = "sub_82A98170"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AB0D50]
+size = 0x10
+name = "sub_82AB0D50"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AB0D84]
+size = 0x10
+name = "sub_82AB0D84"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AB781C]
+size = 0x10
+name = "sub_82AB781C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AB7834]
+size = 0x10
+name = "sub_82AB7834"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AC32E4]
+size = 0x10
+name = "sub_82AC32E4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AC7010]
+size = 0x10
+name = "sub_82AC7010"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AC9BF8]
+size = 0x10
+name = "sub_82AC9BF8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AC9C20]
+size = 0x10
+name = "sub_82AC9C20"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AC9C48]
+size = 0x10
+name = "sub_82AC9C48"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AC9C70]
+size = 0x10
+name = "sub_82AC9C70"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82AC9ED4]
+size = 0x10
+name = "sub_82AC9ED4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82ACCE3C]
+size = 0x10
+name = "sub_82ACCE3C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82ACF764]
+size = 0x10
+name = "sub_82ACF764"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82ACF780]
+size = 0x10
+name = "sub_82ACF780"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B1D304]
+size = 0x10
+name = "sub_82B1D304"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B4AD38]
+size = 0x10
+name = "sub_82B4AD38"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B4BA64]
+size = 0x10
+name = "sub_82B4BA64"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B4BA7C]
+size = 0x10
+name = "sub_82B4BA7C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B755A0]
+size = 0x10
+name = "sub_82B755A0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B802A8]
+size = 0x10
+name = "sub_82B802A8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B84BA8]
+size = 0x10
+name = "sub_82B84BA8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B92E50]
+size = 0x10
+name = "sub_82B92E50"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B93028]
+size = 0x10
+name = "sub_82B93028"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B932E8]
+size = 0x10
+name = "sub_82B932E8"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82B9346C]
+size = 0x10
+name = "sub_82B9346C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82C86544]
+size = 0x10
+name = "sub_82C86544"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CBD57C]
+size = 0x10
+name = "sub_82CBD57C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CD501C]
+size = 0x10
+name = "sub_82CD501C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CD50F4]
+size = 0x10
+name = "sub_82CD50F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEDEA4]
+size = 0x10
+name = "sub_82CEDEA4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEE134]
+size = 0x10
+name = "sub_82CEE134"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEE20C]
+size = 0x10
+name = "sub_82CEE20C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEE474]
+size = 0x10
+name = "sub_82CEE474"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEEEBC]
+size = 0x10
+name = "sub_82CEEEBC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEF9A4]
+size = 0x10
+name = "sub_82CEF9A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEF9BC]
+size = 0x10
+name = "sub_82CEF9BC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEFE04]
+size = 0x10
+name = "sub_82CEFE04"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEFE1C]
+size = 0x10
+name = "sub_82CEFE1C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CEFE40]
+size = 0x10
+name = "sub_82CEFE40"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF0004]
+size = 0x10
+name = "sub_82CF0004"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF030C]
+size = 0x10
+name = "sub_82CF030C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF0324]
+size = 0x10
+name = "sub_82CF0324"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF0574]
+size = 0x10
+name = "sub_82CF0574"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF058C]
+size = 0x10
+name = "sub_82CF058C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF05A4]
+size = 0x10
+name = "sub_82CF05A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF05BC]
+size = 0x10
+name = "sub_82CF05BC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF0798]
+size = 0x10
+name = "sub_82CF0798"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CF40F0]
+size = 0x10
+name = "sub_82CF40F0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF264]
+size = 0x10
+name = "sub_82CFF264"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF27C]
+size = 0x10
+name = "sub_82CFF27C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF294]
+size = 0x10
+name = "sub_82CFF294"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF2AC]
+size = 0x10
+name = "sub_82CFF2AC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF2C4]
+size = 0x10
+name = "sub_82CFF2C4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF2DC]
+size = 0x10
+name = "sub_82CFF2DC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF2F4]
+size = 0x10
+name = "sub_82CFF2F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF30C]
+size = 0x10
+name = "sub_82CFF30C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF324]
+size = 0x10
+name = "sub_82CFF324"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF33C]
+size = 0x10
+name = "sub_82CFF33C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF354]
+size = 0x10
+name = "sub_82CFF354"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF36C]
+size = 0x10
+name = "sub_82CFF36C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82CFF98C]
+size = 0x10
+name = "sub_82CFF98C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D0040C]
+size = 0x10
+name = "sub_82D0040C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D00424]
+size = 0x10
+name = "sub_82D00424"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D005DC]
+size = 0x10
+name = "sub_82D005DC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D00DC8]
+size = 0x10
+name = "sub_82D00DC8"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D13290]
+size = 0x10
+name = "sub_82D13290"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D174C4]
+size = 0x10
+name = "sub_82D174C4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D19F1C]
+size = 0x10
+name = "sub_82D19F1C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D19F34]
+size = 0x10
+name = "sub_82D19F34"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D1FA64]
+size = 0x10
+name = "sub_82D1FA64"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D1FBB4]
+size = 0x10
+name = "sub_82D1FBB4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D221B4]
+size = 0x10
+name = "sub_82D221B4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2372C]
+size = 0x10
+name = "sub_82D2372C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D239A4]
+size = 0x10
+name = "sub_82D239A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D239BC]
+size = 0x10
+name = "sub_82D239BC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D240A4]
+size = 0x10
+name = "sub_82D240A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D241E4]
+size = 0x10
+name = "sub_82D241E4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D24324]
+size = 0x10
+name = "sub_82D24324"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D24464]
+size = 0x10
+name = "sub_82D24464"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D245A4]
+size = 0x10
+name = "sub_82D245A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D246F4]
+size = 0x10
+name = "sub_82D246F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2492C]
+size = 0x10
+name = "sub_82D2492C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D24AEC]
+size = 0x10
+name = "sub_82D24AEC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D24DE4]
+size = 0x10
+name = "sub_82D24DE4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D24DFC]
+size = 0x10
+name = "sub_82D24DFC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D258CC]
+size = 0x10
+name = "sub_82D258CC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D258E4]
+size = 0x10
+name = "sub_82D258E4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D25AAC]
+size = 0x10
+name = "sub_82D25AAC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D25D1C]
+size = 0x10
+name = "sub_82D25D1C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D25FE4]
+size = 0x10
+name = "sub_82D25FE4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D25FFC]
+size = 0x10
+name = "sub_82D25FFC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2729C]
+size = 0x10
+name = "sub_82D2729C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D272D0]
+size = 0x10
+name = "sub_82D272D0"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2793C]
+size = 0x10
+name = "sub_82D2793C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D27A7C]
+size = 0x10
+name = "sub_82D27A7C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D27BBC]
+size = 0x10
+name = "sub_82D27BBC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D27CFC]
+size = 0x10
+name = "sub_82D27CFC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D27E3C]
+size = 0x10
+name = "sub_82D27E3C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28204]
+size = 0x10
+name = "sub_82D28204"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28354]
+size = 0x10
+name = "sub_82D28354"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D284A4]
+size = 0x10
+name = "sub_82D284A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D285F4]
+size = 0x10
+name = "sub_82D285F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2886C]
+size = 0x10
+name = "sub_82D2886C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D289D4]
+size = 0x10
+name = "sub_82D289D4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D289EC]
+size = 0x10
+name = "sub_82D289EC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28B3C]
+size = 0x10
+name = "sub_82D28B3C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28DDC]
+size = 0x10
+name = "sub_82D28DDC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28DF4]
+size = 0x10
+name = "sub_82D28DF4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28E0C]
+size = 0x10
+name = "sub_82D28E0C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28E24]
+size = 0x10
+name = "sub_82D28E24"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28E3C]
+size = 0x10
+name = "sub_82D28E3C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28E54]
+size = 0x10
+name = "sub_82D28E54"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28E6C]
+size = 0x10
+name = "sub_82D28E6C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28E84]
+size = 0x10
+name = "sub_82D28E84"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D28E9C]
+size = 0x10
+name = "sub_82D28E9C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2905C]
+size = 0x10
+name = "sub_82D2905C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D291FC]
+size = 0x10
+name = "sub_82D291FC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2933C]
+size = 0x10
+name = "sub_82D2933C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D293FC]
+size = 0x10
+name = "sub_82D293FC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D294B4]
+size = 0x10
+name = "sub_82D294B4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2F670]
+size = 0x10
+name = "sub_82D2F670"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D2FD74]
+size = 0x10
+name = "sub_82D2FD74"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D36204]
+size = 0x10
+name = "sub_82D36204"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D36624]
+size = 0x10
+name = "sub_82D36624"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D3929C]
+size = 0x10
+name = "sub_82D3929C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D463A4]
+size = 0x10
+name = "sub_82D463A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D47024]
+size = 0x10
+name = "sub_82D47024"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D475A4]
+size = 0x10
+name = "sub_82D475A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D4765C]
+size = 0x10
+name = "sub_82D4765C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D48F8C]
+size = 0x10
+name = "sub_82D48F8C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D4A4F4]
+size = 0x10
+name = "sub_82D4A4F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53B44]
+size = 0x10
+name = "sub_82D53B44"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53B5C]
+size = 0x10
+name = "sub_82D53B5C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53B74]
+size = 0x10
+name = "sub_82D53B74"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53B8C]
+size = 0x10
+name = "sub_82D53B8C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53BA4]
+size = 0x10
+name = "sub_82D53BA4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53BBC]
+size = 0x10
+name = "sub_82D53BBC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53C14]
+size = 0x10
+name = "sub_82D53C14"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53C2C]
+size = 0x10
+name = "sub_82D53C2C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D53C44]
+size = 0x10
+name = "sub_82D53C44"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D7C770]
+size = 0x10
+name = "sub_82D7C770"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8B0A4]
+size = 0x10
+name = "sub_82D8B0A4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8B4D4]
+size = 0x10
+name = "sub_82D8B4D4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8B58C]
+size = 0x10
+name = "sub_82D8B58C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8B754]
+size = 0x10
+name = "sub_82D8B754"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8D0FC]
+size = 0x10
+name = "sub_82D8D0FC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8D114]
+size = 0x10
+name = "sub_82D8D114"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8D8F4]
+size = 0x10
+name = "sub_82D8D8F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8D90C]
+size = 0x10
+name = "sub_82D8D90C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8DB4C]
+size = 0x10
+name = "sub_82D8DB4C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8DB64]
+size = 0x10
+name = "sub_82D8DB64"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8DB7C]
+size = 0x10
+name = "sub_82D8DB7C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8DC34]
+size = 0x10
+name = "sub_82D8DC34"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8DCAC]
+size = 0x10
+name = "sub_82D8DCAC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8DCC4]
+size = 0x10
+name = "sub_82D8DCC4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8F994]
+size = 0x10
+name = "sub_82D8F994"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8F9AC]
+size = 0x10
+name = "sub_82D8F9AC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8F9C4]
+size = 0x10
+name = "sub_82D8F9C4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8F9DC]
+size = 0x10
+name = "sub_82D8F9DC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8F9F4]
+size = 0x10
+name = "sub_82D8F9F4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8FA0C]
+size = 0x10
+name = "sub_82D8FA0C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D8FA24]
+size = 0x10
+name = "sub_82D8FA24"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D9000C]
+size = 0x10
+name = "sub_82D9000C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D90024]
+size = 0x10
+name = "sub_82D90024"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D9003C]
+size = 0x10
+name = "sub_82D9003C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D91894]
+size = 0x10
+name = "sub_82D91894"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D9193C]
+size = 0x10
+name = "sub_82D9193C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D91954]
+size = 0x10
+name = "sub_82D91954"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D91A0C]
+size = 0x10
+name = "sub_82D91A0C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D929D4]
+size = 0x10
+name = "sub_82D929D4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D92B14]
+size = 0x10
+name = "sub_82D92B14"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D92E74]
+size = 0x10
+name = "sub_82D92E74"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D92F8C]
+size = 0x10
+name = "sub_82D92F8C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D92FA4]
+size = 0x10
+name = "sub_82D92FA4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D93654]
+size = 0x10
+name = "sub_82D93654"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D9373C]
+size = 0x10
+name = "sub_82D9373C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D93E5C]
+size = 0x10
+name = "sub_82D93E5C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D93E74]
+size = 0x10
+name = "sub_82D93E74"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D94CF4]
+size = 0x10
+name = "sub_82D94CF4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D94D0C]
+size = 0x10
+name = "sub_82D94D0C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D94D24]
+size = 0x10
+name = "sub_82D94D24"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D94D3C]
+size = 0x10
+name = "sub_82D94D3C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D94D54]
+size = 0x10
+name = "sub_82D94D54"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D9626C]
+size = 0x10
+name = "sub_82D9626C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82D96284]
+size = 0x10
+name = "sub_82D96284"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DA9B58]
+size = 0x10
+name = "sub_82DA9B58"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DB1DF4]
+size = 0x10
+name = "sub_82DB1DF4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DBC14C]
+size = 0x10
+name = "sub_82DBC14C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DC9CF4]
+size = 0x10
+name = "sub_82DC9CF4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DE1C0C]
+size = 0x10
+name = "sub_82DE1C0C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DE4D4C]
+size = 0x10
+name = "sub_82DE4D4C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DE9D30]
+size = 0x10
+name = "sub_82DE9D30"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DE9E2C]
+size = 0x10
+name = "sub_82DE9E2C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DE9E6C]
+size = 0x10
+name = "sub_82DE9E6C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82DE9EA0]
+size = 0x10
+name = "sub_82DE9EA0"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E2A6CC]
+size = 0x10
+name = "sub_82E2A6CC"
+
+# Virtual call dispatch stub (size 0x10)
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E2FDD4]
+size = 0x10
+name = "sub_82E2FDD4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E2FDEC]
+size = 0x10
+name = "sub_82E2FDEC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E322AC]
+size = 0x10
+name = "sub_82E322AC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E326B4]
+size = 0x10
+name = "sub_82E326B4"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E59894]
+size = 0x10
+name = "sub_82E59894"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E5995C]
+size = 0x10
+name = "sub_82E5995C"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E5D418]
+size = 0x10
+name = "sub_82E5D418"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E5D438]
+size = 0x10
+name = "sub_82E5D438"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E706FC]
+size = 0x10
+name = "sub_82E706FC"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E70714]
+size = 0x10
+name = "sub_82E70714"
+
+# Virtual call dispatch stub (size 0x10)
+[functions.0x82E70814]
+size = 0x10
+name = "sub_82E70814"

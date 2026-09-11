@@ -1,4 +1,4 @@
-﻿# MKvDC ReXGlue Function Configuration
+# MKvDC ReXGlue Function Configuration
 # Function boundaries and extents to resolve strict analysis validation failures
 
 # Site 1: Leaf function called from tail call at 0x826FB314
@@ -6,16 +6,14 @@
 size = 0x30
 name = "sub_8271F300"
 
-# Site 2: Contiguous function extent containing backward branch 0x82A41DA4 -> 0x82A41D94
-# Extends beyond original PDATA size (0xA0) through 0x82A41DB0
+# Site 2: Standalone function extent (true PDATA size 0xA0, adjacent to vtable method 0x82A41B60)
 [functions.0x82A41AC0]
-end = 0x82A41DB0
+size = 0xA0
 name = "sub_82A41AC0"
 
-# Site 3: Contiguous function extent containing backward branch 0x82A4ABFC -> 0x82A4ABEC
-# Extends beyond original PDATA size (0x88) through 0x82A4AC48
+# Site 3: Standalone function extent (true PDATA size 0x88, adjacent to vtable method 0x82A4AB88)
 [functions.0x82A4AB00]
-end = 0x82A4AC48
+size = 0x88
 name = "sub_82A4AB00"
 
 # Site 4: Small accessor method called via tail-call thunk at 0x828E04EC
@@ -32,3 +30,84 @@ name = "sub_828EA6D8"
 [functions.0x82B79228]
 size = 0x108
 name = "sub_82B79228"
+
+# CRT TLS Alloc trampoline called via materialized function pointer at 0x82B3A878
+[functions.0x82B3A498]
+size = 0x08
+name = "sub_82B3A498"
+
+# Virtual adjusting thunk [this-8] calling vtable +0x14
+[functions.0x828DACA8]
+size = 0x20
+name = "sub_828DACA8"
+
+# Virtual adjusting thunk [this-8] calling vtable +0x18
+[functions.0x828DACC8]
+size = 0x20
+name = "sub_828DACC8"
+
+# Virtual interface query method called via vtables at 0x8214B0A4 and 0x8214B330
+[functions.0x828DACE8]
+size = 0x18
+name = "sub_828DACE8"
+
+# Task callback / thread worker thunk called via materialized function pointer at 0x822539B0 etc.
+[functions.0x822D0B98]
+size = 0x0C
+name = "sub_822D0B98"
+
+# Virtual deleting destructor stub
+[functions.0x823F9C48]
+size = 0x10
+name = "sub_823F9C48"
+
+# UE3 UI / Window message dispatcher virtual method
+[functions.0x82B93038]
+size = 0x150
+name = "sub_82B93038"
+
+# Virtual call thunk calling vtable +0xC
+[functions.0x825CB858]
+size = 0x10
+name = "sub_825CB858"
+
+# Virtual bitfield getter accessor method
+[functions.0x82332A80]
+size = 0x10
+name = "sub_82332A80"
+
+# Virtual accessor method (getter for +0x8C)
+[functions.0x82273128]
+size = 0x08
+name = "sub_82273128"
+
+# Virtual audio channel / format query method (returns 6 channels for 5.1 surround)
+[functions.0x828E07F0]
+size = 0x18
+name = "sub_828E07F0"
+
+# Virtual interface method (audio/system device query)
+[functions.0x828E3E70]
+size = 0x48
+name = "sub_828E3E70"
+
+# Virtual interface method (audio/system device setting)
+[functions.0x828E3EB8]
+size = 0x38
+name = "sub_828E3EB8"
+
+# Allocator wrapper thunk
+[functions.0x82D00DD8]
+size = 0x30
+name = "sub_82D00DD8"
+
+# Deallocator / deleting destructor thunk
+[functions.0x82D00E08]
+size = 0x28
+name = "sub_82D00E08"
+
+# CRT qsort array comparator called from 0x82C20990
+[functions.0x82C075A8]
+size = 0x88
+name = "sub_82C075A8"
+

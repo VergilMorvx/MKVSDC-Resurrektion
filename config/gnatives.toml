@@ -1,0 +1,123 @@
+# MKvDC ReXGlue GNatives & Bytecode VM Configuration
+# Harvested systematically from Unreal Engine 3 GNatives & dispatch tables in .data (24 functions)
+# Resolves missing bytecode page dispatchers and native operator thunks
+
+# bctr (Bytecode VM Page Dispatcher)
+[functions.0x82284038]
+size = 0x18
+name = "sub_82284038"
+
+# bctr (Bytecode VM Page Dispatcher)
+[functions.0x82284050]
+size = 0x28
+name = "sub_82284050"
+
+# bctr (Bytecode VM Page Dispatcher - run 019 crash site)
+[functions.0x82284078]
+size = 0x30
+name = "sub_82284078"
+
+# tail-call to 0x82630948 (GNatives operator thunk)
+[functions.0x826ADDA8]
+size = 0x18
+name = "sub_826ADDA8"
+
+# tail-call to 0x82674FC0 (GNatives operator thunk)
+[functions.0x826AE7B0]
+size = 0x20
+name = "sub_826AE7B0"
+
+# tail-call to 0x82675058 (GNatives operator thunk)
+[functions.0x826AE7D0]
+size = 0x20
+name = "sub_826AE7D0"
+
+# tail-call to 0x826751E0 (GNatives operator thunk)
+[functions.0x826AE810]
+size = 0x20
+name = "sub_826AE810"
+
+# tail-call to 0x8264AC88 (GNatives operator thunk)
+[functions.0x826AF018]
+size = 0x20
+name = "sub_826AF018"
+
+# tail-call to 0x82688450 (GNatives operator thunk)
+[functions.0x826AF2A8]
+size = 0x18
+name = "sub_826AF2A8"
+
+# tail-call to 0x82692288 (GNatives operator thunk)
+[functions.0x826AF2C0]
+size = 0x18
+name = "sub_826AF2C0"
+
+# tail-call to 0x82685968 (GNatives operator thunk)
+[functions.0x826B1500]
+size = 0x18
+name = "sub_826B1500"
+
+# tail-call to 0x826859B0 (GNatives operator thunk)
+[functions.0x826B1578]
+size = 0x08
+name = "sub_826B1578"
+
+# tail-call to 0x82654630 (GNatives operator thunk)
+[functions.0x826B28A0]
+size = 0x08
+name = "sub_826B28A0"
+
+# tail-call to 0x82654A00 (GNatives operator thunk)
+[functions.0x826B2928]
+size = 0x18
+name = "sub_826B2928"
+
+# tail-call to 0x82654A58 (GNatives operator thunk)
+[functions.0x826B2940]
+size = 0x18
+name = "sub_826B2940"
+
+# tail-call to 0x8265BCD8 (GNatives operator thunk)
+[functions.0x826B2A08]
+size = 0x20
+name = "sub_826B2A08"
+
+# tail-call to 0x82648778 (GNatives operator thunk)
+[functions.0x826B3208]
+size = 0x28
+name = "sub_826B3208"
+
+# tail-call to 0x826FB910 (GNatives operator thunk)
+[functions.0x826B7188]
+size = 0x18
+name = "sub_826B7188"
+
+# tail-call to 0x826DBC68 (GNatives operator thunk)
+[functions.0x826B7778]
+size = 0x18
+name = "sub_826B7778"
+
+# tail-call to 0x826288B0 (GNatives operator thunk)
+[functions.0x826C8C28]
+size = 0x18
+name = "sub_826C8C28"
+
+# tail-call to 0x826297E0 (GNatives operator thunk)
+[functions.0x826C8C58]
+size = 0x18
+name = "sub_826C8C58"
+
+# tail-call to 0x82629858 (GNatives operator thunk)
+[functions.0x826C8F00]
+size = 0x08
+name = "sub_826C8F00"
+
+# tail-call to 0x826E8758 (GNatives operator thunk)
+[functions.0x826C8F90]
+size = 0x18
+name = "sub_826C8F90"
+
+# tail-call to 0x82B36990 (GNatives operator thunk)
+[functions.0x8279CD18]
+size = 0x08
+name = "sub_8279CD18"
