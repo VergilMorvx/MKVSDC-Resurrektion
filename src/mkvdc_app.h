@@ -153,6 +153,12 @@ class MkvdcApp : public rex::ReXApp {
     if (current_interval.empty()) {
       rex::cvar::SetFlagByName("d3d12_present_interval", "1");
     }
+
+    // Enable keyboard/mouse controller emulation by default (Enter=Start, Space=A, Backspace=B, WASD)
+    std::string current_mnk = rex::cvar::GetFlagByName("mnk_mode");
+    if (current_mnk.empty()) {
+      rex::cvar::SetFlagByName("mnk_mode", "true");
+    }
   }
 };
 
