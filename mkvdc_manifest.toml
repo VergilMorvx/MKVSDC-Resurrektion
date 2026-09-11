@@ -8,4 +8,4 @@ game_root = "../mkvdc_extracted/mortal kombat vs. dc universe (world) (en,fr,de,
 [entrypoint]
 file_path = "../mkvdc_extracted/mortal kombat vs. dc universe (world) (en,fr,de,es,it)/default.xex"
 out_directory_path = "generated/default"
-includes = []
+includes = ["config/functions.toml"]

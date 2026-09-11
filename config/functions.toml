@@ -1,0 +1,34 @@
+﻿# MKvDC ReXGlue Function Configuration
+# Function boundaries and extents to resolve strict analysis validation failures
+
+# Site 1: Leaf function called from tail call at 0x826FB314
+[functions.0x8271F300]
+size = 0x30
+name = "sub_8271F300"
+
+# Site 2: Contiguous function extent containing backward branch 0x82A41DA4 -> 0x82A41D94
+# Extends beyond original PDATA size (0xA0) through 0x82A41DB0
+[functions.0x82A41AC0]
+end = 0x82A41DB0
+name = "sub_82A41AC0"
+
+# Site 3: Contiguous function extent containing backward branch 0x82A4ABFC -> 0x82A4ABEC
+# Extends beyond original PDATA size (0x88) through 0x82A4AC48
+[functions.0x82A4AB00]
+end = 0x82A4AC48
+name = "sub_82A4AB00"
+
+# Site 4: Small accessor method called via tail-call thunk at 0x828E04EC
+[functions.0x828DFEA0]
+size = 0x18
+name = "sub_828DFEA0"
+
+# Site 5: 8-byte adjusting thunk called from 0x828E87CC
+[functions.0x828EA6D8]
+size = 0x08
+name = "sub_828EA6D8"
+
+# Site 6: Standalone 3D math routine called via trampoline at 0x82CDC6C0
+[functions.0x82B79228]
+size = 0x108
+name = "sub_82B79228"
