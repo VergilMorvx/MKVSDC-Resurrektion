@@ -1,0 +1,22 @@
+# Build outputs
+/out/
+/build/
+.ninja*
+CMakeUserPresets.json
+
+# Generated recompilation output (ephemeral)
+/generated/default/
+
+# Game assets and copyrighted files
+*.xex
+*.xexp
+*.iso
+*.xxx
+*.wmv
+*.fsb
+*.xma
+*.sav
+*.dmp
+*.trace
+/assets/
+/private-inputs/
