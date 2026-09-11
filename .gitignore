@@ -20,3 +20,10 @@ CMakeUserPresets.json
 *.trace
 /assets/
 /private-inputs/
+*.bin
+
+# Caches and logs
+*.xpso
+*.xsh
+logs/
+*.log

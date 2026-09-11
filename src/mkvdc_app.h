@@ -1,13 +1,67 @@
 #pragma once
 
 #include <rex/rex_app.h>
+#include <spdlog/sinks/base_sink.h>
+
+#include <chrono>
+#include <fstream>
+#include <mutex>
+#include <string_view>
 
 #if defined(_WIN32)
 #include <windows.h>
 #include <dxgi.h>
 #endif
 
+// Lightweight, zero-overhead diagnostic telemetry sink
+// Captures file streaming (.xxx), video playback (.wmv), and shader/pipeline creation
+class DiagnosticTelemetrySink : public spdlog::sinks::base_sink<std::mutex> {
+ public:
+  explicit DiagnosticTelemetrySink(const std::filesystem::path& log_path)
+      : out_(log_path, std::ios::out | std::ios::app) {}
+
+ protected:
+  void sink_it_(const spdlog::details::log_msg& msg) override {
+    std::string_view payload(msg.payload.data(), msg.payload.size());
+    bool is_movie = (payload.find(".wmv") != std::string_view::npos ||
+                     payload.find(".WMV") != std::string_view::npos ||
+                     payload.find("Movies") != std::string_view::npos ||
+                     payload.find("Movie") != std::string_view::npos);
+    bool is_shader = (payload.find("shader") != std::string_view::npos ||
+                      payload.find("Shader") != std::string_view::npos ||
+                      payload.find("pipeline") != std::string_view::npos ||
+                      payload.find("Pipeline") != std::string_view::npos);
+    bool is_pkg = (payload.find(".xxx") != std::string_view::npos ||
+                   payload.find("Asset") != std::string_view::npos);
+
+    if (payload.find("k_1_REVERSE") != std::string_view::npos) {
+      return;
+    }
+
+    if (is_movie || is_shader || is_pkg || msg.level >= spdlog::level::warn) {
+      auto now = std::chrono::steady_clock::now();
+      auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count();
+      if (out_.is_open()) {
+        out_ << "[" << ms << " ms] [" << msg.logger_name.data() << "] "
+             << "[" << spdlog::level::to_string_view(msg.level).data() << "] "
+             << payload << "\n";
+        out_.flush();
+      }
+    }
+  }
+
+  void flush_() override {
+    if (out_.is_open()) {
+      out_.flush();
+    }
+  }
+
+ private:
+  std::ofstream out_;
+};
+
 class MkvdcApp : public rex::ReXApp {
+
  public:
   using rex::ReXApp::ReXApp;
 
@@ -17,7 +71,28 @@ class MkvdcApp : public rex::ReXApp {
         PPCImageConfig));
   }
 
+  void OnPostInitLogging() override {
+    std::filesystem::path diag_dir = "logs";
+    std::error_code ec;
+    std::filesystem::create_directories(diag_dir, ec);
+    auto diag_sink = std::make_shared<DiagnosticTelemetrySink>(diag_dir / "diagnostic_telemetry.log");
+    rex::AddSink(diag_sink);
+
+    // Target GPU and FileSystem specifically for shader compilation, PSO, and movie/package tracing
+    if (auto cat_gpu = rex::FindCategory("gpu")) {
+      rex::SetCategoryLevel(*cat_gpu, spdlog::level::debug);
+    }
+    if (auto cat_fs = rex::FindCategory("fs")) {
+      rex::SetCategoryLevel(*cat_fs, spdlog::level::debug);
+    }
+    if (auto cat_krnl = rex::FindCategory("krnl")) {
+      rex::SetCategoryLevel(*cat_krnl, spdlog::level::trace);
+    }
+  }
+
+
   void OnConfigurePaths(rex::PathConfig& paths) override {
+
     if (paths.game_data_root.empty()) {
       std::filesystem::path default_root =
           "D:/mkvsdc/MKvDC_Extracted/Mortal Kombat vs. DC Universe (World) (En,Fr,De,Es,It)";
@@ -72,6 +147,12 @@ class MkvdcApp : public rex::ReXApp {
       }
     }
 #endif
+
+    // Enforce 60 FPS frame pacing baseline (SyncInterval = 1) unless explicitly overridden
+    std::string current_interval = rex::cvar::GetFlagByName("d3d12_present_interval");
+    if (current_interval.empty()) {
+      rex::cvar::SetFlagByName("d3d12_present_interval", "1");
+    }
   }
 };
 
