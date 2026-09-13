@@ -34,11 +34,15 @@ class DiagnosticTelemetrySink : public spdlog::sinks::base_sink<std::mutex> {
     bool is_pkg = (payload.find(".xxx") != std::string_view::npos ||
                    payload.find("Asset") != std::string_view::npos);
 
-    bool is_content = (payload.find("XamContent") != std::string_view::npos ||
-                       payload.find("Content") != std::string_view::npos ||
-                       payload.find("profile") != std::string_view::npos ||
-                       payload.find("Save") != std::string_view::npos ||
-                       payload.find("save") != std::string_view::npos);
+    bool is_content = ((payload.find("XamContent") != std::string_view::npos ||
+                        payload.find("Content") != std::string_view::npos ||
+                        payload.find("Device") != std::string_view::npos ||
+                        payload.find("Profile") != std::string_view::npos ||
+                        payload.find("profile") != std::string_view::npos ||
+                        payload.find("Signin") != std::string_view::npos ||
+                        payload.find("Save") != std::string_view::npos ||
+                        payload.find("save") != std::string_view::npos) &&
+                       payload.find("XamInput") == std::string_view::npos);
 
     if (payload.find("k_1_REVERSE") != std::string_view::npos) {
       return;
@@ -107,9 +111,7 @@ class MkvdcApp : public rex::ReXApp {
       }
     }
 
-    if (paths.user_data_root.empty()) {
-      paths.user_data_root = std::filesystem::current_path() / "savedata";
-    }
+    paths.user_data_root = std::filesystem::current_path() / "savedata";
     std::error_code ec;
     std::filesystem::create_directories(paths.user_data_root, ec);
   }

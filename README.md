@@ -15,7 +15,7 @@ By translating PowerPC machine instructions into native C++ ahead-of-time (AOT) 
 | **Phase H: 3D Attract & In-Game** | **COMPLETE** | In-engine matches rendering with dynamic lighting, skeletal animation, particle systems, and 5.1 surround audio. |
 | **Phase I: Interactive Combat & Optimization** | **COMPLETE** | Interactive gameplay confirmed. First-encounter combat stutter resolved via persistent D3D12 PSO caching. Frame presentation locked to rock-solid 60 FPS (`SyncInterval = 1`). Discrete GPU auto-selection (NVIDIA RTX 4060). Keyboard/mouse emulation enabled. |
 | **Phase J: Cinematic & Movie Subsystem** | **COMPLETE** | 119 WMV files audited. In-engine Xenon DXVA decoder shaders verified active: bit-for-bit verified playback of Studio Logo movies (`midway_logo.wmv`, `WB_Logo.wmv`, `DC_Logo.wmv`) and full in-engine Story Mode intros (`MK001.wmv` & `dc001.wmv`). |
-| **Phase K: Save System & Profile Persistence** | **IN PROGRESS** | Local storage container mounting (`XamContentCreate`, `XamContentOpen`, `XamContentClose`) redirected to disk `savedata/`, auto-profile registration, and savegame persistence. |
+| **Phase K: Save System & Profile Persistence** | **COMPLETE** | Local storage container mounting (`XamContentCreate`, `XamContentOpen`, `XamContentClose`) redirected to `./savedata/`, automated headless profile registration, container persistence (`MK vs. DCU Game Settings` & `MK vs DCU`), and verified cold-restart state restoration. |
 
 ---
 

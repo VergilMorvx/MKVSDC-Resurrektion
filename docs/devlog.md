@@ -179,3 +179,34 @@
     - Sampled frame sequence (`dc001_cutscene_real_t6s.png` Metropolis street grid aerial, `dc001_cutscene_real_t15s.png` burning Metropolis skyline, `dc001_cutscene_real_t21s.png` Superman soaring through the sky) matched ground-truth reference frames (`ref_dc001_15s.png`) bit-for-bit.
   - Both cutscenes play at 1280x720 60 FPS via in-engine DXVA decode shaders with full color accuracy, correct detiling, synchronized audio, and smooth transition back to the Unreal Engine 3 runtime.
 - **Ledger Update**: Updated `docs/wmv_ledger.json` and `docs/wmv_status.md`, promoting `MK001.wmv` and `dc001.wmv` to `PASS`.
+
+## 2026-09-13 — Phase K Milestone: In-Game Save Persistence & Container Lifecycle Verified
+- **Objective**: Implement and verify local in-game save creation, STFS container persistence, and persistent reload across clean process exits and cold restarts.
+- **Save Path Redirection**:
+  - Configured `OnConfigurePaths` in `src/mkvdc_app.h` to unconditionally override `paths.user_data_root` to `./savedata`, mapping save storage directly to:
+    - Save Containers: `./savedata/B13EBABEBABEBABE/4D5707E9/00000001/`
+    - Container Headers: `./savedata/B13EBABEBABEBABE/4D5707E9/Headers/00000001/`
+    - User Profile Data: `./savedata/profile/B13EBABEBABEBABE/4D5707E9/`
+- **Headless Profile Sign-In & Device Enumeration**:
+  - Updated `rexglue-sdk/src/kernel/xam/xam_ui.cpp` to auto-acknowledge button 0 ("Sign in") on Title Screen "Profile Selection" dialogs, enabling the guest save subsystem.
+  - Headless device selector in `XamShowDeviceSelectorUI` returns virtual storage device `0x00000001` (HDD).
+  - Storage enumerator in `XamContentCreateEnumerator` queries existing containers in `./savedata`.
+- **In-Game Save Creation (`CREATE_ALWAYS`)**:
+  - Navigated into `OPTIONS` -> `GAMEPLAY OPTIONS`.
+  - Modified gameplay parameters:
+    - `KOMBAT CPU`: `MEDIUM` -> `HARD`
+    - `ROUNDS TO WIN`: `2` -> `3`
+  - Pressing `A` (`ACCEPT`) invokes `xeXamContentCreate` with `flags = 0x00000012` (`CREATE_ALWAYS`):
+    - Registers VFS symlink `save:` -> `\Device\Content\<id>\`.
+    - Creates container directory `./savedata/B13EBABEBABEBABE/4D5707E9/00000001/MK vs. DCU Game Settings/`.
+    - Writes the 48-byte binary save payload `MK vs. DCU Game Settings`.
+    - Generates the 328-byte metadata header `MK vs. DCU Game Settings.header`.
+    - Flushes and unmounts `save:` cleanly via `XamContentClose`.
+- **Cold Process Restart & Persistent Reload Verification**:
+  - Fully terminated `mkvdc.exe` and launched a fresh process from scratch.
+  - On cold boot, Title Screen sign-in executes `XamContentCreateEnumerator`, reporting 1 existing item.
+  - Game calls `xeXamContentCreate` with `flags = 0x00000013` (`OPEN_EXISTING`), successfully mounting the container.
+  - Navigated to `OPTIONS` -> `GAMEPLAY OPTIONS` and captured framebuffer (`e2e_runB_verified_rounds3.png`):
+    - Confirmed `KOMBAT CPU` remained `HARD` (persisted from previous session).
+    - Confirmed `ROUNDS TO WIN` remained `3` (persisted across process termination and reload).
+- **Regression Check**: Title screen, menus, WMV movie cutscenes, and gameplay remain 100% operational.

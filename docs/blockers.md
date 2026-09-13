@@ -19,8 +19,16 @@
   - Bit-for-bit frame match verified against source assets for `midway_logo.wmv` (3.32 MB), `WB_Logo.wmv` (5.97 MB), and `DC_Logo.wmv` (4.43 MB).
   - Clean video-to-viewport state restoration and transition into live 3D title screen verified.
   - Keyboard/mouse controller emulation (`mnk_mode = true`) integrated by default.
+- **RESOLVED & VERIFIED (2026-09-12)**: **Phase J2 (Story Mode In-Engine Cutscenes)**:
+  - In-engine high-bandwidth cinematic playback empirically verified for `MK001.wmv` (Mortal Kombat intro, 81.17 MB) and `dc001.wmv` (DC Universe intro, 104.40 MB).
+  - Sampled frame sequences matched source FFmpeg reference frames bit-for-bit with full 60 FPS DXVA shader decode, synchronized audio, and smooth transition back to Unreal Engine 3 gameplay.
+- **RESOLVED & VERIFIED (2026-09-13)**: **Phase K (In-Game Save Persistence & Container Lifecycle)**:
+  - Local save redirection unconditionally mapped to `./savedata/B13EBABEBABEBABE/4D5707E9/00000001/`.
+  - Automated headless profile sign-in and device selection configured.
+  - In-game container creation (`xeXamContentCreate`, `CREATE_ALWAYS`) verified: setting adjustments in `GAMEPLAY OPTIONS` (`KOMBAT CPU: HARD`, `ROUNDS TO WIN: 3`) write binary payloads and `.header` metadata to disk.
+  - Cold process reboot verification: after complete process exit, restarting from scratch successfully discovers existing containers, mounts `save:`, and restores modified gameplay parameters bit-for-bit into active engine state.
 
-## Current Phase Goals: Phase J2 (Story Mode & In-Game Cinematic Transitions)
-1. Verify story mode cinematic playback (`MK001.wmv`, `dc001.wmv`) and multi-track audio stream decoding.
-2. Verify interactive menu navigation into Story Mode chapters and Arcade ladders.
-3. Track and validate remaining in-game cutscenes against the 119-movie ledger (`docs/wmv_status.md`).
+## Current Phase Goals: Phase L (Extended Progression, Cheats & Character Unlock Integrity)
+1. Verify story chapter completion progression writing to `MK vs DCU` save container.
+2. Validate arcade ladder save state and unlocked characters (Dark Kahn, Shao Kahn, Darkseid).
+3. Continue monitoring stability and regression checks across long gameplay sessions.
