@@ -210,10 +210,31 @@ class MkvdcApp : public rex::ReXApp {
     }
 #endif
 
-    std::vector<std::filesystem::path> search_paths = {
-        std::filesystem::current_path() / "mods"
-    };
+    std::vector<std::filesystem::path> search_paths;
+    auto cur_mods = std::filesystem::current_path() / "mods";
+    if (std::filesystem::exists(cur_mods)) {
+      search_paths.push_back(cur_mods);
+    }
+
+    std::filesystem::path config_path = std::filesystem::current_path() / "config" / "mods.toml";
+
 #ifdef _WIN32
+    wchar_t exe_path_buf[MAX_PATH];
+    if (GetModuleFileNameW(nullptr, exe_path_buf, MAX_PATH) > 0) {
+      std::filesystem::path exe_dir = std::filesystem::path(exe_path_buf).parent_path();
+      auto exe_mods = exe_dir / "mods";
+      if (std::filesystem::exists(exe_mods) &&
+          std::find(search_paths.begin(), search_paths.end(), exe_mods) == search_paths.end()) {
+        search_paths.push_back(exe_mods);
+      }
+      if (!std::filesystem::exists(config_path)) {
+        auto exe_config = exe_dir / "config" / "mods.toml";
+        if (std::filesystem::exists(exe_config)) {
+          config_path = exe_config;
+        }
+      }
+    }
+
     char* appdata_buf = nullptr;
     size_t appdata_len = 0;
     if (_dupenv_s(&appdata_buf, &appdata_len, "APPDATA") == 0 && appdata_buf) {
@@ -225,9 +246,11 @@ class MkvdcApp : public rex::ReXApp {
     }
 #endif
 
-    mkvsdc::ModManager::Instance().DiscoverMods(
-        search_paths,
-        std::filesystem::current_path() / "config" / "mods.toml");
+    if (search_paths.empty()) {
+      search_paths.push_back(std::filesystem::current_path() / "mods");
+    }
+
+    mkvsdc::ModManager::Instance().DiscoverMods(search_paths, config_path);
     mkvsdc::ModManager::Instance().ApplyVfsOverlays(runtime()->file_system());
 #ifdef _WIN32
     mkvsdc::ModManager::Instance().ApplyHooks(runtime()->function_dispatcher(), base);

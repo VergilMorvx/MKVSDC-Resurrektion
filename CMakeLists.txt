@@ -26,3 +26,12 @@ rexglue_setup_target(mkvdc)
 if(WIN32)
     target_link_options(mkvdc PRIVATE -Wl,/DEBUG)
 endif()
+
+add_custom_command(TARGET mkvdc POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_CURRENT_SOURCE_DIR}/config
+        $<TARGET_FILE_DIR:mkvdc>/config
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_CURRENT_SOURCE_DIR}/mods
+        $<TARGET_FILE_DIR:mkvdc>/mods
+)
