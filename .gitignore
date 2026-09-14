@@ -27,3 +27,4 @@ CMakeUserPresets.json
 *.xsh
 logs/
 *.log
+scratch/

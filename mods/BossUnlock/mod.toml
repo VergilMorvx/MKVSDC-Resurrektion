@@ -1,0 +1,8 @@
+# Boss Unlock Mod Manifest
+id = "boss_unlock"
+name = "Boss Unlocker"
+version = "1.0.0"
+author = "MKVSDC Team"
+description = "Unlocks Shao Kahn and Darkseid on the character selection screen."
+enabled = true
+priority = 50

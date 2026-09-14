@@ -1,0 +1,8 @@
+# Test Mod Manifest
+id = "test_mod"
+name = "Test Mod (Phase L)"
+version = "1.0.0"
+author = "MKVSDC Team"
+description = "Demonstration mod validating multi-priority VFS overlay resolution and manifest handling."
+enabled = true
+priority = 10

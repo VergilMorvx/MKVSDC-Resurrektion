@@ -13,6 +13,7 @@ include(generated/rexglue.cmake)
 # Sources
 set(MKVDC_SOURCES
     src/main.cpp
+    src/mod_manager.cpp
 )
 
 if(WIN32)
@@ -22,3 +23,6 @@ else()
 endif()
 
 rexglue_setup_target(mkvdc)
+if(WIN32)
+    target_link_options(mkvdc PRIVATE -Wl,/DEBUG)
+endif()

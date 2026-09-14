@@ -1,0 +1,17 @@
+# MKVSDC: Resurrektion - Mod Manager Configuration
+# This file can be edited manually or manipulated by the MKVSDC Mod Launcher.
+
+[mods]
+enabled = true
+
+[mods.boss_unlock]
+enabled = true
+priority = 50
+
+[mods.darkkahn]
+enabled = false
+priority = 100
+
+[mods.test_mod]
+enabled = true
+priority = 10

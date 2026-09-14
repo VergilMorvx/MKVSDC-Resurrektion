@@ -1,0 +1,8 @@
+# Dark Kahn Mod Manifest
+id = "darkkahn"
+name = "Playable Dark Kahn (Prototype)"
+version = "0.1.0"
+author = "MKVSDC Community"
+description = "Dark Kahn character package (parked pending Phase M skeletal mesh injection)."
+enabled = false
+priority = 100

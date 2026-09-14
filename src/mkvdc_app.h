@@ -2,6 +2,7 @@
 
 #include <rex/rex_app.h>
 #include <spdlog/sinks/base_sink.h>
+#include "mod_manager.h"
 
 #include <chrono>
 #include <fstream>
@@ -44,11 +45,11 @@ class DiagnosticTelemetrySink : public spdlog::sinks::base_sink<std::mutex> {
                         payload.find("save") != std::string_view::npos) &&
                        payload.find("XamInput") == std::string_view::npos);
 
-    if (payload.find("k_1_REVERSE") != std::string_view::npos) {
-      return;
-    }
+    bool is_mod = (payload.find("ModManager") != std::string_view::npos ||
+                   payload.find("DarkKahn") != std::string_view::npos ||
+                   payload.find("darkkahn") != std::string_view::npos);
 
-    if (is_movie || is_shader || is_pkg || is_content || msg.level >= spdlog::level::warn) {
+    if (is_movie || is_shader || is_pkg || is_content || is_mod || msg.level >= spdlog::level::warn) {
       auto now = std::chrono::steady_clock::now();
       auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()).count();
       if (out_.is_open()) {
@@ -97,6 +98,9 @@ class MkvdcApp : public rex::ReXApp {
     }
     if (auto cat_krnl = rex::FindCategory("krnl")) {
       rex::SetCategoryLevel(*cat_krnl, spdlog::level::trace);
+    }
+    if (auto cat_sys = rex::FindCategory("sys")) {
+      rex::SetCategoryLevel(*cat_sys, spdlog::level::debug);
     }
   }
 
@@ -180,5 +184,57 @@ class MkvdcApp : public rex::ReXApp {
       rex::cvar::SetFlagByName("mnk_ignore_focus", "true");
     }
   }
+
+  void OnPreLaunchModule() override {
+#ifdef _WIN32
+    uint8_t* base = runtime()->virtual_membase();
+    if (base) {
+      uint8_t* curr = base + 0x82000000;
+      uint8_t* end  = base + 0x83200000;
+      MEMORY_BASIC_INFORMATION mbi;
+      int changed_count = 0;
+      while (curr < end) {
+        if (VirtualQuery(curr, &mbi, sizeof(mbi)) == sizeof(mbi)) {
+          if (mbi.State == MEM_COMMIT) {
+            DWORD old_prot = 0;
+            if (VirtualProtect(mbi.BaseAddress, mbi.RegionSize, PAGE_READWRITE, &old_prot)) {
+              changed_count++;
+            }
+          }
+          curr = reinterpret_cast<uint8_t*>(mbi.BaseAddress) + mbi.RegionSize;
+        } else {
+          break;
+        }
+      }
+      REXSYS_INFO("Applied PAGE_READWRITE to {} guest memory regions in 0x82000000..0x83200000", changed_count);
+    }
+#endif
+
+    std::vector<std::filesystem::path> search_paths = {
+        std::filesystem::current_path() / "mods"
+    };
+#ifdef _WIN32
+    char* appdata_buf = nullptr;
+    size_t appdata_len = 0;
+    if (_dupenv_s(&appdata_buf, &appdata_len, "APPDATA") == 0 && appdata_buf) {
+      auto user_mods = std::filesystem::path(appdata_buf) / "MKVSDC" / "mods";
+      if (std::filesystem::exists(user_mods)) {
+        search_paths.push_back(user_mods);
+      }
+      free(appdata_buf);
+    }
+#endif
+
+    mkvsdc::ModManager::Instance().DiscoverMods(
+        search_paths,
+        std::filesystem::current_path() / "config" / "mods.toml");
+    mkvsdc::ModManager::Instance().ApplyVfsOverlays(runtime()->file_system());
+#ifdef _WIN32
+    mkvsdc::ModManager::Instance().ApplyHooks(runtime()->function_dispatcher(), base);
+#else
+    mkvsdc::ModManager::Instance().ApplyHooks(runtime()->function_dispatcher(), runtime()->virtual_membase());
+#endif
+  }
 };
+
 
