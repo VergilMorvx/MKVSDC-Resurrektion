@@ -16,6 +16,73 @@ By translating PowerPC machine instructions into native C++ ahead-of-time (AOT) 
 | **Phase I: Interactive Combat & Optimization** | **COMPLETE** | Interactive gameplay confirmed. First-encounter combat stutter resolved via persistent D3D12 PSO caching. Frame presentation locked to rock-solid 60 FPS (`SyncInterval = 1`). Discrete GPU auto-selection (NVIDIA RTX 4060). Keyboard/mouse emulation enabled. |
 | **Phase J: Cinematic & Movie Subsystem** | **COMPLETE** | 119 WMV files audited. In-engine Xenon DXVA decoder shaders verified active: bit-for-bit verified playback of Studio Logo movies (`midway_logo.wmv`, `WB_Logo.wmv`, `DC_Logo.wmv`) and full in-engine Story Mode intros (`MK001.wmv` & `dc001.wmv`). |
 | **Phase K: Save System & Profile Persistence** | **COMPLETE** | Local storage container mounting (`XamContentCreate`, `XamContentOpen`, `XamContentClose`) redirected to `./savedata/`, automated headless profile registration, container persistence (`MK vs. DCU Game Settings` & `MK vs DCU`), and verified cold-restart state restoration. |
+| **Phase L: Mod Framework** | **IMPLEMENTED** | Mod discovery, central TOML overrides, priority overlays, and runtime hooks. Asset overlays are applied at startup and need a restart after changing. |
+| **Phase M / M+: Dark Kahn** | **PARTIALLY VERIFIED** | The isolated source-SDK build renders Dark Kahn as Player 2 in Practice and handles combat hits. The large select render still shows Shao Kahn; HUD art, announcer playback, and particle attachment remain open. |
+| **Audit remediation** | **IN PROGRESS** | The pinned SDK patch applies to a clean SDK worktree; a separate project worktree completed fresh codegen, 36 hook insertions, and a source-SDK build. The regenerated main build passed a Practice and mod startup check. Remaining runtime safety and Phase M+ paths are listed below. |
+
+Phases G–K summarize earlier milestone evidence; the current audit reran the
+source build, mod startup, and Player 2 Dark Kahn Practice path.
+
+## Project Stages, Audit Work, and Change Record
+
+This section consolidates the project roadmap and the work recorded in the
+engineering log. It is a status index, not a claim that every historic milestone
+was rerun during the 2026-09-26 audit. Detailed run notes and reverse-engineering
+evidence are linked in [Documentation](#documentation).
+
+### Full Stage History
+
+| Stage | Scope and result | Current status |
+| :--- | :--- | :--- |
+| **A–D — Toolchain and translation foundation** | Set up the Windows/LLVM build, pinned ReXGlue, inspected the Xbox 360 XEX, and established strict PowerPC-to-C++ code generation. | Complete; historical verification. |
+| **E–F — Runtime and subsystem bring-up** | Initialized guest memory, CRT/kernel services, VFS mounts, D3D12/Xenos graphics, SDL audio, and package loading. Iteratively resolved startup panics caused by missing indirect-call targets. | Complete; historical verification. |
+| **G — First visual frame** | Brought the game to a visible, non-black Unreal Engine 3 frame in the host window. | Complete; historical verification. |
+| **H — Attract mode and 3D battles** | Reached rendered in-engine matches with lighting, skeletal animation, effects, and multichannel audio. | Complete; historical verification. |
+| **I — Combat, graphics performance, and input** | Isolated first-hit stutter to D3D12 PSO compilation, persisted and warmed the pipeline cache, selected the high-performance GPU, added presentation pacing, and enabled keyboard/mouse input. | Complete; historical verification. |
+| **J1/J2 — Movies and story cinematics** | Cataloged 119 WMV assets and verified in-engine logo playback plus the `MK001.wmv` and `dc001.wmv` Story Mode introductions using the Xenon movie path. | Complete; historical verification. |
+| **K — Save and profile persistence** | Implemented local content-container handling under `./savedata/` and verified settings/profile restoration after a cold restart. | Complete; historical verification. |
+| **K3 — Dark Kahn investigation** | Traced selection, player setup, script/move data, and mesh/material loading. Documented why a drop-in package replacement was unsafe and parked that route. | Investigation complete; replacement route parked. |
+| **L — Mod framework** | Added non-destructive VFS overlays, mod discovery and priority, TOML configuration, runtime hooks, and post-build deployment. | Implemented; startup and mod checks rerun during this audit. |
+| **M/M+ — Dark Kahn mod** | Added selection aliases and package/mesh/audio/effect hooks. Current Practice evidence shows the Dark Kahn portrait and Player 2 combat mesh; select-screen body artwork, audible announcer playback, and particle attachment remain open. | Partially verified; active work. |
+| **N — Stock compatibility** | A prior full-combat stock regression run is recorded as passing. | Historical verification; rerun the affected paths after runtime changes. |
+| **O — Multiplayer/netplay** | Identified networking stubs and recorded a possible foundation. | Proposal only; not implemented. |
+
+### Audit Remediation Stages
+
+| Audit stage | Changes made | Evidence / remaining limits |
+| :--- | :--- | :--- |
+| **0 — Preserve baseline** | Preserved existing project and SDK edits; confirmed the pinned ReXGlue base and captured current state. | Complete. No existing working-tree changes were discarded. |
+| **1 — Reproducible SDK and code generation** | Added `patches/rexglue-sdk.patch` and its guarded apply script; tracked generated callback edits and added a verifier/post-codegen script; documented the configure/codegen/reconfigure sequence; staged the Xenos GPU plugin and required SSSE3/ImGui build settings. | Clean pinned-SDK application and idempotent reapplication passed. Fresh codegen verified 36 callback insertions and built the executable, runtime, and GPU plugin. Generated game code and proprietary assets stay untracked. |
+| **2 — Runtime safety and configuration correctness** | Made ModManager reads return synchronized snapshots; made config writes use a temporary file and report failures; scoped mesh fallback to the current thread/load; serialized shared package/audio guest scratch use and ordered boss-select reset with enqueue; respected explicit false flags; documented restart-required overlay changes; rejected VFS file/directory collisions; fixed auto-continue, exact test-button parsing, and present-interval clamping. | Rebuilt and exercised the relevant startup/Practice path. The package-fallback route was not reached; some HUD/FName and synthetic-costume scratch/lifetime paths still need review. |
+| **3 — Tooling, regression checks, and documentation** | Made `tests/test_modding.py` use checkout-relative paths and paired run logs; made vtable harvesting emit a separate candidate file by default and added a conflict-checking merge tool; reconciled current status across the README, modding guide, blocker list, audit index, and historical handoffs. | Modding check passed against the paired logs. The vtable merge utility has not been run. |
+| **4 — Phase M+ package investigation** | Inspected UI, character, audio, and FX package exports; corrected the distinction between Dark Kahn's small head portrait and Shao Kahn's large select artwork; removed ineffective body-art and cue rewrite attempts; recorded candidate sockets and effects. | Current screenshots/logs confirm P2 portrait alias, mesh rendering/hit response, and package redirects. Large select artwork, announcer playback, and emitter attachment are not verified. No package repacker or proprietary package is included. |
+| **5 — Regression and distribution gate** | Rebuilt after fresh codegen, ran Practice and the mod startup check, and recorded remaining checks. | These current-build checks passed. Stock movie/input/save/graphics regression paths, full Dark Kahn presentation/audio/FX, and distribution configuration still need completion. |
+
+### 2026-09-25–26 Audit Change Summary
+
+The audit changed project build and reproducibility files (`CMakeLists.txt`,
+presets, generated-hook tooling, and the tracked SDK patch); runtime and mod
+management code (`src/mkvdc_app.h`, `src/mod_manager.*`, mod configuration and
+manifest); and the modding test, vtable tools, README, and audit documentation.
+The SDK patch is applied to a separate pinned SDK checkout. Generated C++ and
+local game inputs are build inputs, not source files committed by this project.
+
+The regenerated project build completed in
+`out/build/audit-win-amd64-release/`, producing `mkvdc.exe`, `rexruntime.dll`,
+and `rexgpu-xenos.dll`. Fresh code generation was byte-identical across 219
+generated C++ translation units in the main checkout. The current Practice
+capture and paired logs are in the local, untracked evidence directory
+`scratch/practice_runs/audit_20260926_phase_m_asset/`.
+The run showed Dark Kahn as Player 2 and responding to a hit; its select screen
+showed the Dark Kahn head portrait but retained Shao Kahn's large cutout. It
+also reached Dark Kahn voice/SFX package redirects and linked the FX package,
+which does not by itself prove audio playback or particle attachment.
+
+Earlier command history and reverse-engineering evidence are maintained in
+[`docs/devlog.md`](docs/devlog.md) and
+[`docs/analysis-ledger.md`](docs/analysis-ledger.md). Dark Kahn's original
+character-injection investigation is in
+[`docs/PHASE_K3_DARK_KAHN_INVESTIGATION.md`](docs/PHASE_K3_DARK_KAHN_INVESTIGATION.md).
 
 ---
 
@@ -50,24 +117,37 @@ By translating PowerPC machine instructions into native C++ ahead-of-time (AOT) 
 
 ### Prerequisites
 - **Operating System**: Windows 10/11 (64-bit).
-- **Toolchain**: Visual Studio 2022 / Build Tools with Clang/LLVM and MSVC v143.
-- **Build System**: CMake (>= 3.28) and Ninja.
-- **Python**: Python 3.10+ (for helper scripts and verification).
+- **Toolchain**: LLVM Clang 22.1.8 targeting `x86_64-pc-windows-msvc`, with the MSVC-compatible runtime and Windows SDK. The current audit build was verified in Visual Studio 2026 with MSVC 14.51.
+- **Build System**: CMake (>= 3.25) and Ninja. The current audit used CMake 4.3.1 and Ninja 1.13.2.
+- **Python**: Python 3.11+ (or Python 3.10 with `tomli`; `capstone` is required for vtable harvesting).
 - **SDK**: ReXGlue SDK (pinned commit `c94f5eb`).
 
 ### Build Steps
 
 ```powershell
-# 1. Clone repository
+# 1. Clone the project and pinned SDK beside it
 git clone https://github.com/VergilMorvx/MKVSDC-Resurrektion.git
 cd MKVSDC-Resurrektion
+git clone https://github.com/rexglue/rexglue-sdk.git ..\rexglue-sdk
+git -C ..\rexglue-sdk checkout c94f5ebdcb3c9d1a460ca48e04f9758448f8d518
+git -C ..\rexglue-sdk submodule update --init --recursive
 
-# 2. Configure build preset (Release x64)
+# Apply the complete, project-owned SDK change set. This refuses unexpected local edits.
+python scripts\apply_rexglue_sdk_patch.py --sdk-dir ..\rexglue-sdk
+
+# Point mkvdc_manifest.toml at your own extracted game directory and default.xex.
+
+# 2. Configure and run codegen once so CMake can discover generated sources
 cmake --preset win-amd64-release
+cmake --build --preset win-amd64-release --target mkvdc_codegen
 
-# 3. Compile host executable
+# Reconfigure after codegen, then build the executable
+cmake --preset win-amd64-release
 cmake --build --preset win-amd64-release
+
 ```
+
+The preset uses `../rexglue-sdk` by default. Set `REXSDK_DIR` in the CMake cache to use another checkout. The first configure and codegen pass requires the game paths in `mkvdc_manifest.toml` to point to files on your machine. CMake reapplies the tracked callback patch after codegen; running `rexglue codegen` manually requires `python scripts/apply_generated_hooks.py` afterward.
 
 The output executable `mkvdc.exe` will be located in `out/build/win-amd64-release/`.
 
@@ -94,6 +174,8 @@ Comprehensive reverse-engineering reports and implementation notes are available
 - [`docs/devlog.md`](docs/devlog.md): Chronological engineering log covering passes 1 through 9, bug fixes, and profiling experiments.
 - [`docs/analysis-ledger.md`](docs/analysis-ledger.md): Detailed reverse engineering ledger of all identified assembly routines, vtable gaps, and dispatchers.
 - [`docs/blockers.md`](docs/blockers.md): Milestone tracker, open investigations, and active goals.
+- [`docs/MODDING_GUIDE.md`](docs/MODDING_GUIDE.md): Mod layout, manifests, configuration, VFS priority, and ModManager API.
+- [`docs/PHASE_K3_DARK_KAHN_INVESTIGATION.md`](docs/PHASE_K3_DARK_KAHN_INVESTIGATION.md): Dark Kahn character-loading investigation and parked replacement approach.
 - [`docs/wmv_status.md`](docs/wmv_status.md): Complete audit and status matrix for all 119 WMV video assets.
 - [`docs/wmv_ledger.json`](docs/wmv_ledger.json): Machine-readable catalog containing hashes, dimensions, durations, and bitrates of all game cutscenes.
 
