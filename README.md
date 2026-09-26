@@ -17,7 +17,7 @@ By translating PowerPC machine instructions into native C++ ahead-of-time (AOT) 
 | **Phase J: Cinematic & Movie Subsystem** | **COMPLETE** | 119 WMV files audited. In-engine Xenon DXVA decoder shaders verified active: bit-for-bit verified playback of Studio Logo movies (`midway_logo.wmv`, `WB_Logo.wmv`, `DC_Logo.wmv`) and full in-engine Story Mode intros (`MK001.wmv` & `dc001.wmv`). |
 | **Phase K: Save System & Profile Persistence** | **COMPLETE** | Local storage container mounting (`XamContentCreate`, `XamContentOpen`, `XamContentClose`) redirected to `./savedata/`, automated headless profile registration, container persistence (`MK vs. DCU Game Settings` & `MK vs DCU`), and verified cold-restart state restoration. |
 | **Phase L: Mod Framework** | **IMPLEMENTED** | Mod discovery, central TOML overrides, priority overlays, and runtime hooks. Asset overlays are applied at startup and need a restart after changing. |
-| **Phase M / M+: Dark Kahn** | **PARTIALLY VERIFIED** | The isolated source-SDK build renders Dark Kahn as Player 2 in Practice and handles combat hits. The large select render still shows Shao Kahn; HUD art, announcer playback, and particle attachment remain open. |
+| **Phase M / M+: Dark Kahn** | **PARTIALLY VERIFIED** | The current captures show Dark Kahn on the Player 2 versus screen and in Practice combat, responding to a hit. They do not capture the select screen after Dark Kahn is chosen, so selected-state artwork remains unverified; announcer playback and particle attachment are also open. |
 | **Audit remediation** | **IN PROGRESS** | The pinned SDK patch applies to a clean SDK worktree; a separate project worktree completed fresh codegen, 36 hook insertions, and a source-SDK build. The regenerated main build passed a Practice and mod startup check. Remaining runtime safety and Phase M+ paths are listed below. |
 
 Phases G–K summarize earlier milestone evidence; the current audit reran the
@@ -43,7 +43,7 @@ evidence are linked in [Documentation](#documentation).
 | **K — Save and profile persistence** | Implemented local content-container handling under `./savedata/` and verified settings/profile restoration after a cold restart. | Complete; historical verification. |
 | **K3 — Dark Kahn investigation** | Traced selection, player setup, script/move data, and mesh/material loading. Documented why a drop-in package replacement was unsafe and parked that route. | Investigation complete; replacement route parked. |
 | **L — Mod framework** | Added non-destructive VFS overlays, mod discovery and priority, TOML configuration, runtime hooks, and post-build deployment. | Implemented; startup and mod checks rerun during this audit. |
-| **M/M+ — Dark Kahn mod** | Added selection aliases and package/mesh/audio/effect hooks. Current Practice evidence shows the Dark Kahn portrait and Player 2 combat mesh; select-screen body artwork, audible announcer playback, and particle attachment remain open. | Partially verified; active work. |
+| **M/M+ — Dark Kahn mod** | Added selection aliases and package/mesh/audio/effect hooks. Current captures show Dark Kahn on the versus screen and as the Player 2 combat mesh; they do not show the select screen after Dark Kahn is chosen. Announcer playback and particle attachment remain open. | Partially verified; active work. |
 | **N — Stock compatibility** | A prior full-combat stock regression run is recorded as passing. | Historical verification; rerun the affected paths after runtime changes. |
 | **O — Multiplayer/netplay** | Identified networking stubs and recorded a possible foundation. | Proposal only; not implemented. |
 
@@ -53,10 +53,10 @@ evidence are linked in [Documentation](#documentation).
 | :--- | :--- | :--- |
 | **0 — Preserve baseline** | Preserved existing project and SDK edits; confirmed the pinned ReXGlue base and captured current state. | Complete. No existing working-tree changes were discarded. |
 | **1 — Reproducible SDK and code generation** | Added `patches/rexglue-sdk.patch` and its guarded apply script; tracked generated callback edits and added a verifier/post-codegen script; documented the configure/codegen/reconfigure sequence; staged the Xenos GPU plugin and required SSSE3/ImGui build settings. | Clean pinned-SDK application and idempotent reapplication passed. Fresh codegen verified 36 callback insertions and built the executable, runtime, and GPU plugin. Generated game code and proprietary assets stay untracked. |
-| **2 — Runtime safety and configuration correctness** | Made ModManager reads return synchronized snapshots; made config writes use a temporary file and report failures; scoped mesh fallback to the current thread/load; serialized shared package/audio guest scratch use and ordered boss-select reset with enqueue; respected explicit false flags; documented restart-required overlay changes; rejected VFS file/directory collisions; fixed auto-continue, exact test-button parsing, and present-interval clamping. | Rebuilt and exercised the relevant startup/Practice path. The package-fallback route was not reached; some HUD/FName and synthetic-costume scratch/lifetime paths still need review. |
-| **3 — Tooling, regression checks, and documentation** | Made `tests/test_modding.py` use checkout-relative paths and paired run logs; made vtable harvesting emit a separate candidate file by default and added a conflict-checking merge tool; reconciled current status across the README, modding guide, blocker list, audit index, and historical handoffs. | Modding check passed against the paired logs. The vtable merge utility has not been run. |
-| **4 — Phase M+ package investigation** | Inspected UI, character, audio, and FX package exports; corrected the distinction between Dark Kahn's small head portrait and Shao Kahn's large select artwork; removed ineffective body-art and cue rewrite attempts; recorded candidate sockets and effects. | Current screenshots/logs confirm P2 portrait alias, mesh rendering/hit response, and package redirects. Large select artwork, announcer playback, and emitter attachment are not verified. No package repacker or proprietary package is included. |
-| **5 — Regression and distribution gate** | Rebuilt after fresh codegen, ran Practice and the mod startup check, and recorded remaining checks. | These current-build checks passed. Stock movie/input/save/graphics regression paths, full Dark Kahn presentation/audio/FX, and distribution configuration still need completion. |
+| **2 — Runtime safety and configuration correctness** | Made ModManager reads return synchronized snapshots; made config writes use a temporary file and report failures; scoped mesh fallback to the current thread/load; serialized shared package/audio guest scratch use and ordered boss-select reset with enqueue; initialized immutable mesh/HUD/player-data strings and the synthetic-costume record once in `ApplyHooks`; respected explicit false flags; documented restart-required overlay changes; rejected VFS file/directory collisions; fixed auto-continue, exact test-button parsing, and present-interval clamping. | The source rebuilt after the one-time scratch initialization change. The latest mod check passed against available startup logs, but no new Practice run followed this final change. Package fallback was not reached; variable voice-name ring reuse and package-object lifetime still need runtime review. |
+| **3 — Tooling, regression checks, and documentation** | Made `tests/test_modding.py` use checkout-relative paths, select the newest build logs by default (or honor `MKVDC_BUILD_DIR`), load the effective config/manifests used by that run, and restrict telemetry checks to the latest startup; made vtable harvesting emit a separate candidate file by default and added a conflict-checking merge tool; reconciled current status across the docs. | The mod check passed with automatic log selection and with an explicit audit-build override. A stale-telemetry check passed. The vtable merge utility has not been run. |
+| **4 — Phase M+ package investigation** | Inspected UI, character, audio, and FX package exports; distinguished the default P2 select preview, the later versus screen, and the combat mesh; removed ineffective body-art and cue rewrite attempts; recorded candidate sockets and effects. | Logs confirm the head-name alias hook ran, and captures show Dark Kahn on the versus screen and in combat. The selected-state select-screen art, announcer playback, and emitter attachment are not verified. No package repacker or proprietary package is included. |
+| **5 — Regression and distribution gate** | Rebuilt after fresh codegen, ran Practice and the mod startup check, and recorded remaining checks. | Fresh codegen/build and the captured Practice/mod checks passed before the final one-time scratch initialization edit; that edit rebuilt successfully and the log-based mod check passed, but needs a new Practice run. Stock movie/input/save/graphics regression paths, full Dark Kahn presentation/audio/FX, and distribution configuration still need completion. |
 
 ### 2026-09-25–26 Audit Change Summary
 
@@ -73,10 +73,20 @@ and `rexgpu-xenos.dll`. Fresh code generation was byte-identical across 219
 generated C++ translation units in the main checkout. The current Practice
 capture and paired logs are in the local, untracked evidence directory
 `scratch/practice_runs/audit_20260926_phase_m_asset/`.
-The run showed Dark Kahn as Player 2 and responding to a hit; its select screen
-showed the Dark Kahn head portrait but retained Shao Kahn's large cutout. It
-also reached Dark Kahn voice/SFX package redirects and linked the FX package,
-which does not by itself prove audio playback or particle attachment.
+The screenshot sequence shows the default Batman preview in
+`4_practice_p2_select.png`, then Dark Kahn on the later versus screen in
+`5_practice_p2_boss.png`, and Dark Kahn responding to a hit in Practice. The
+sequence does not capture the select screen after choosing Dark Kahn. Logs show
+the head-name alias hook and Dark Kahn voice/SFX package redirects; they also
+show the FX package being linked. Those events do not by themselves prove the
+selected-state art, audio playback, or particle attachment.
+
+After that capture, the runtime audit moved immutable mesh, HUD, empty-string,
+and player-data guest strings plus the synthetic costume pointer record into
+one-time initialization in `ModManager::ApplyHooks`. The application rebuilt
+and the log-based mod check passed; an interactive Practice run after this
+last change is still needed. Per-call voice-name ring buffers and the captured
+package-object pointer lifetime remain open review items.
 
 Earlier command history and reverse-engineering evidence are maintained in
 [`docs/devlog.md`](docs/devlog.md) and
