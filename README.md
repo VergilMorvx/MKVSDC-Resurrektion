@@ -18,10 +18,12 @@ By translating PowerPC machine instructions into native C++ ahead-of-time (AOT) 
 | **Phase K: Save System & Profile Persistence** | **COMPLETE** | Local storage container mounting (`XamContentCreate`, `XamContentOpen`, `XamContentClose`) redirected to `./savedata/`, automated headless profile registration, container persistence (`MK vs. DCU Game Settings` & `MK vs DCU`), and verified cold-restart state restoration. |
 | **Phase L: Mod Framework** | **IMPLEMENTED** | Mod discovery, central TOML overrides, priority overlays, and runtime hooks. Asset overlays are applied at startup and need a restart after changing. |
 | **Phase M / M+: Dark Kahn** | **PARTIALLY VERIFIED** | The current captures show Dark Kahn on the Player 2 versus screen and in Practice combat, responding to a hit. They do not capture the select screen after Dark Kahn is chosen, so selected-state artwork remains unverified; announcer playback and particle attachment are also open. |
-| **Audit remediation** | **IN PROGRESS** | The pinned SDK patch applies exactly, and the source SDK and project Release builds pass after the latest safety fixes. Both SDK configurations pass 216 discovered unit cases (212 pass, four conditional skips). The captured Practice and mod startup checks predate the latest source fixes; current runtime and Phase M+ gaps are listed below. |
+| **Audit remediation** | **IN PROGRESS** | The pinned SDK patch applies exactly; SDK Debug/Release and project Release builds pass. Both SDK configurations pass 217 discovered cases (213 pass, four existing conditional skips). A fresh 35-second startup smoke reached UI-package requests and the paired mod checks pass; there is no fresh interactive visual/audio/FX validation yet. |
 
-Phases G–K summarize earlier milestone evidence; the current audit reran the
-source build, mod startup, and Player 2 Dark Kahn Practice path.
+Phases G–K summarize earlier milestone evidence. The current audit reran the
+source build and mod startup; a 35-second hidden startup smoke reached UI
+package requests. The Player 2 Dark Kahn Practice capture predates the latest
+runtime changes and remains historical evidence.
 
 ## Project Stages, Audit Work, and Change Record
 
@@ -53,10 +55,10 @@ evidence are linked in [Documentation](#documentation).
 | :--- | :--- | :--- |
 | **0 — Preserve baseline** | Preserved existing project and SDK edits; confirmed the pinned ReXGlue base and captured current state. | Complete. No existing working-tree changes were discarded. |
 | **1 — Reproducible SDK and code generation** | Added `patches/rexglue-sdk.patch` and its guarded apply script; tracked generated callback edits and added a verifier/post-codegen script; documented the configure/codegen/reconfigure sequence; staged the Xenos GPU plugin and required SSSE3/ImGui build settings. | Clean pinned-SDK application and idempotent reapplication passed. Fresh codegen verified 36 callback insertions and built the executable, runtime, and GPU plugin. Generated game code and proprietary assets stay untracked. |
-| **2 — Runtime safety and configuration correctness** | Made ModManager reads return synchronized snapshots; made config writes use a temporary file and report failures; preserved runtime `config/mods.toml` during post-build deployment; retained preferences for temporarily undiscovered mods; range-checked TOML priorities and quoted saved mod IDs; aligned manifest metadata defaults with the guide; rejected linked overlay roots, skipped symlinks and Windows reparse points in host indexing, lazy lookup, and overlays, and capped VFS traversal at 128 directory levels; scoped mesh fallback to the current thread/load; serialized shared package/audio guest scratch use and ordered boss-select reset with enqueue; initialized immutable mesh/HUD/player-data strings, fixed voice/SFX/foley package names, and the synthetic-costume record once in `ApplyHooks`; respected explicit false flags; documented restart-required overlay changes; rejected VFS file/directory collisions; fixed auto-continue, exact test-button parsing, and present-interval clamping; initialized D3D12 texture-copy layout values, fixed a dangling XAM launch-path view, and made the oversized-scissor bounds comparisons signed. | Fresh codegen and a true Release build passed after the latest changes. The pinned SDK Debug and Release builds/install steps passed, and the patch-apply verifier confirmed the checkout exactly matches the tracked patch. Deployment fixtures confirmed user config preservation and first-run seeding. The 216 discovered SDK unit cases had no failures in either Debug or Release; 212 passed and four existing bitstream cases were skipped by their own conditions in each configuration. Focused tests exercise rejection of linked overlay roots, skipping linked overlay descendants, and refusing links in the base tree and its lazy path lookup using Windows junctions. The latest source rebuilt cleanly, but available gameplay logs predate these last source changes. Package fallback was not reached; variable announcer cue-name scratch and package-object lifetime still need runtime review. |
-| **3 — Tooling, regression checks, and documentation** | Made `tests/test_modding.py` use checkout-relative paths, select the newest build logs by default (or honor `MKVDC_BUILD_DIR`), load the effective config/manifests used by that run, and restrict telemetry checks to the latest startup; made vtable harvesting emit a separate candidate file by default, refuse overwriting the canonical config, and added a conflict-checking merge tool; added Windows SDK tests for linked roots, overlay descendants, and lazy base-path lookups, fixed the SDK unit-test include path and depfile test's invalid C++ escape, made the SDK patch verifier capture added files through a temporary index, cleaned unsafe pointer-bearing texture resets and SDK initialization-order warnings, made sentinel comparisons explicit, refreshed the SDK patch, and reconciled current status across the docs and mod/config path precedence in the guide. | The mod check passed with automatic log selection and with an explicit audit-build override. Synthetic enabled/disabled config fixtures and stale-telemetry checks passed. The vtable scan found 0 unregistered functions; synthetic merge/conflict checks passed without changing the canonical config. All 216 discovered SDK unit cases had no failures in Debug or Release; a synthetic clean-apply check confirmed the patch verifier detects untracked additions without changing the repository index. A warning sweep also fixed the dangling launch-path view and signed scissor comparisons; remaining SDK warnings are primarily emulation-stub parameters, aggregate initialization, and unrelated issues. |
+| **2 — Runtime safety and configuration correctness** | Made ModManager reads return synchronized snapshots; made config writes use a temporary file and report failures; preserved runtime `config/mods.toml` during post-build deployment; retained preferences for temporarily undiscovered mods; range-checked TOML priorities and quoted saved mod IDs; aligned manifest metadata defaults with the guide; rejected linked overlay roots, skipped symlinks and Windows reparse points in host indexing, lazy lookup, and overlays, and capped VFS traversal at 128 directory levels; scoped mesh fallback to the current thread/load; serialized shared package/audio guest scratch use and ordered boss-select reset with enqueue; initialized immutable mesh/HUD/player-data strings, fixed voice/SFX/foley package names, and the synthetic-costume record once in `ApplyHooks`; respected explicit false flags; documented restart-required overlay changes; rejected VFS file/directory collisions; fixed auto-continue, exact test-button parsing, and present-interval clamping; initialized D3D12 texture-copy layout values, fixed a dangling XAM launch-path view, fixed signed scissor bounds and `RtlCompareStringN`'s `0xFFFF` length handling, and bounded XEX compressed-image header, chunk, and output ranges. | Fresh codegen and a true Release build passed after the latest changes. The pinned SDK Debug and Release builds/install steps passed, the tracked SDK patch matches the checkout, and the installed/deployed `rexruntime.dll` SHA-256 values match. Deployment fixtures confirmed user config preservation and first-run seeding. Each SDK configuration reports 217 cases: 213 passed and four existing bitstream cases were skipped by their own conditions, with no failures. Focused Windows tests exercise linked overlay roots, descendants, and lazy base-path lookups. A 35-second hidden startup smoke reached UI-package requests, and the latest paired mod checks pass; it did not exercise interactive Practice, screen selection, audio playback, or effects. Package fallback was not reached; variable announcer cue-name scratch and package-object lifetime still need runtime review. |
+| **3 — Tooling, regression checks, and documentation** | Made `tests/test_modding.py` use checkout-relative paths, select the newest build logs by default (or honor `MKVDC_BUILD_DIR`), load the effective config/manifests used by that run, and restrict telemetry checks to the latest startup; made vtable harvesting emit a separate candidate file by default, refuse overwriting the canonical config, and added a conflict-checking merge tool; added Windows SDK tests for linked roots, overlay descendants, and lazy base-path lookups, plus overflow boundary tests for XEX byte ranges; fixed the SDK unit-test include path and depfile test's invalid C++ escape; made the SDK patch verifier capture added files through a temporary index; cleaned unsafe pointer-bearing texture resets and SDK initialization-order warnings; made sentinel comparisons explicit; refreshed the SDK patch; and reconciled current status across the docs and mod/config path precedence in the guide. | Automatic and explicit-build mod checks pass against the latest startup logs. Synthetic enabled/disabled config fixtures and stale-telemetry checks passed. The vtable scan found 0 unregistered functions; synthetic merge/conflict checks passed without changing the canonical config. Both SDK configurations report 217 discovered cases, with 213 passes, four existing conditional skips, and no failures; a synthetic clean-apply check confirmed the patch verifier detects untracked additions without changing the repository index. A 35-second hidden startup smoke reached UI-package requests. Interactive visual/audio/effects checks remain open. |
 | **4 — Phase M+ package investigation** | Inspected UI, character, audio, and FX package exports; distinguished the default P2 select preview, the later versus screen, and the combat mesh; removed ineffective body-art and cue rewrite attempts; recorded candidate sockets and effects. | Logs confirm the head-name alias hook ran, and captures show Dark Kahn on the versus screen and in combat. The selected-state select-screen art, announcer playback, and emitter attachment are not verified. No package repacker or proprietary package is included. |
-| **5 — Regression and distribution gate** | Rebuilt after fresh codegen, ran Practice and the mod startup check, and recorded remaining checks. | Latest fresh codegen, hook verification, full build, deployment fixture, and automatic/explicit mod checks passed. The tracked default now disables the development marker; a clean package still needs verification. Practice evidence predates the last scratch and deployment edits, so a new gameplay run is still needed. Stock movie/input/save/graphics regression paths and full Dark Kahn presentation/audio/FX remain open. |
+| **5 — Regression and distribution gate** | Rebuilt after fresh codegen, ran a 35-second hidden startup smoke, and checked the paired mod startup logs. | Fresh startup reached UI-package requests; automatic and explicit mod checks pass. The tracked default disables the development marker, but a clean distribution package still needs verification. Practice evidence predates the latest runtime edits, so interactive gameplay and stock movie/input/save/graphics regressions must be rerun. Full Dark Kahn selection-art/audio/FX checks remain open. |
 
 ### 2026-09-25–26 Audit Change Summary
 
@@ -83,22 +85,25 @@ selected-state art, audio playback, or particle attachment.
 
 After that capture, the runtime audit moved immutable mesh, HUD, empty-string,
 and player-data guest strings plus the synthetic costume pointer record into
-one-time initialization in `ModManager::ApplyHooks`. The application rebuilt
-and the log-based mod check passed; an interactive Practice run after this
-last change is still needed. Per-call voice-name ring buffers and the captured
-package-object pointer lifetime remain open review items.
+one-time initialization in `ModManager::ApplyHooks`. The application rebuilt,
+and a later 35-second hidden startup smoke reached UI-package requests; both
+automatic and explicit-build mod checks passed against its paired logs. An
+interactive Practice run after the latest changes is still needed. Per-call
+voice-name ring buffers and the captured package-object pointer lifetime
+remain open review items.
 
 Focused SDK tests now exercise rejection of a linked overlay root, skipping
 linked overlay descendants, and refusal of linked descendants in the base tree
 and its lazy lookup path. On Windows they create junctions first to exercise
 the reparse-point guard, then fall back to directory symlinks if junction
-creation fails. The SDK unit suite had no failures across 216 discovered cases
-in both Debug and Release; 212 passed and four existing bitstream cases were
-skipped by their test conditions in each configuration. The suite also exposed
-and fixed an invalid escape in an existing depfile assertion. The refreshed
-SDK patch matches the pinned SDK checkout exactly. Its apply verifier uses a
-temporary index, preserving the SDK checkout's real index while comparing
-added files.
+creation fails. The SDK unit suite reports 217 discovered cases in each
+configuration; 213 passed and four existing bitstream cases were skipped by
+their test conditions, with no failures. The suite also exposed and fixed an
+invalid escape in an existing depfile assertion. A focused range-helper test
+covers exact, empty, out-of-bounds, and overflow boundaries for XEX byte
+ranges. The refreshed SDK patch matches the pinned SDK checkout exactly. Its
+apply verifier uses a temporary index, preserving the SDK checkout's real
+index while comparing added files.
 
 The follow-up Release warning review found a real lifetime error in
 `XamLoaderLaunchTitle`: a temporary joined path had been assigned to a
@@ -106,21 +111,24 @@ The follow-up Release warning review found a real lifetime error in
 updated. It also initialized the D3D12 base texture footprint and size, changed
 texture-binding reset to assign null pointers explicitly, aligned render-target
 member initialization, and clarified heap defaults. Debug and Release SDK
-install builds and the 216-case suites pass after the fixes, and the project
+install builds and the 217-case suites pass after the fixes, and the project
 Release target was rebuilt. The broad SDK build still reports unrelated
 warnings in emulation stubs and aggregate initialization; they are recorded in
-the audit report rather than hidden by blanket warning suppression.
-The signed/unsigned pass also removed a negative-scissor conversion edge case
-and made sentinel and member initialization order explicit.
+the audit report rather than hidden by blanket warning suppression. The
+signed/unsigned pass removed a negative-scissor conversion edge case and made
+sentinel and member initialization order explicit. Follow-up parsing review
+fixed `RtlCompareStringN`'s `0xFFFF` length handling and bounded XEX compressed
+header, block, chunk, and output ranges. The current XEX paths compile and pass
+the SDK suite, but malformed-XEX integration fixtures are not yet present.
 
 The next config review found unchecked 64-bit TOML priorities being narrowed to
 `int`, and config saves dropping preferences for mods that are temporarily not
 installed. Priority values are now range-checked and invalid values are logged
 and ignored; absent-mod enable/priority settings are retained across saves.
 Saved mod IDs are emitted as escaped TOML quoted keys so punctuation and control
-characters cannot break the configuration file. The incremental build passed
-after these changes. No fresh startup log or interactive run has exercised
-this new config behavior yet.
+characters cannot break the configuration file. A later hidden startup smoke
+and its paired log checks exercised the current config loading path; interactive
+mod behavior remains unverified.
 
 The audio package hook now selects one of three fixed, immutable guest strings
 for Dark Kahn voice, SFX, and cape-foley packages instead of mutating a reused
@@ -136,8 +144,10 @@ steps passed. Review also found that
 the directory named `audit-win-amd64-release` was configured as Debug; it is now
 reconfigured as true Release, with all 219 generated translation units, the app,
 and deployment step rebuilt. The mod checker and Python syntax checks passed
-against available captured logs, which predate the latest changes. A fresh game
-launch is still needed for runtime verification.
+against captured logs available at that earlier checkpoint. The later 35-second
+hidden startup smoke reached UI-package requests, and automatic plus explicit
+mod checks pass against its paired latest logs; interactive runtime
+verification is still needed.
 
 Post-build deployment now refreshes static config and bundled mod assets while
 preserving an existing runtime `config/mods.toml`; the default file is copied
